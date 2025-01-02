@@ -101,4 +101,80 @@
     <section id="nuestros-servicios">
         <h2>NUESTROS SERVICIOS</h2>
         
-        <h3>Servicios a Empresas 
+        <h3>Servicios a Empresas Privadas</h3>
+        <ul>
+            <li>Estructuras metálicas según necesidades particulares</li>
+            <li>Cálculo estructural según necesidades</li>
+            <li>Toma de datos y planificación de espacios</li>
+            <li>Calderería industrial de hierro e inoxidable</li>
+            <li>Plataformas terrazas restaurantes</li>
+            <li>Ascensores: barandillas, techo cabina, chapas cambio de rasante, chapas botonera y techado de cabina, etc.</li>
+        </ul>
+
+        <h3>Servicios a Particulares</h3>
+        <ul>
+            <li>Estructura cerramiento terrazas</li>
+            <li>Rampas adecuación normativa</li>
+        </ul>
+    </section>
+
+    <section id="productos">
+        <h2>NUESTROS PRODUCTOS</h2>
+
+        <h3>Transporte en Fábrica</h3>
+        <ul>
+            <li>Cintas transportadoras</li>
+            <li>Mesas rodilleras transportadoras</li>
+        </ul>
+
+        <h3>Mobiliario Urbano</h3>
+        <ul>
+            <li>Contenedores de residuos</li>
+            <li>Barandillas urbanas</li>
+            <li>Soportes cartelería urbana</li>
+        </ul>
+    </section>
+
+    <section id="por-que-trabajar">
+        <h2>¿POR QUÉ TRABAJAR CON NOSOTROS?</h2>
+        <p>Nos comprometemos a ofrecer soluciones a medida con la más alta calidad, profesionalismo y tecnología de punta, asegurando la satisfacción de nuestros clientes.</p>
+    </section>
+
+    <section id="futuro">
+        <h2>¿HABLAMOS DEL FUTURO?</h2>
+        <p>En Prime Ingeniería creemos en la innovación continua. Estamos siempre buscando nuevas soluciones tecnológicas para mejorar la eficiencia y calidad de nuestros servicios y productos.</p>
+    </section>
+
+    <section id="proveedores">
+        <h2>NUESTROS PROVEEDORES</h2>
+        <p>Contamos con los mejores proveedores de materiales y tecnología de vanguardia, lo que nos permite ofrecer productos de calidad superior en todos nuestros proyectos.</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Prime Ingeniería | Todos los derechos reservados</p>
+</footer>
+
+<script>
+    // Función para mostrar la sección correspondiente al hacer clic en el menú
+    function showSection(sectionId) {
+        // Ocultar todas las secciones
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => section.style.display = 'none');
+        
+        // Mostrar la sección seleccionada
+        const selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+            selectedSection.style.display = 'block';
+        }
+    }
+
+    // Mostrar la sección "¿Quiénes somos?" por defecto al cargar la página
+    window.onload = function() {
+        showSection('quienes-somos');
+    }
+</script>
+
+</body>
+</html>
