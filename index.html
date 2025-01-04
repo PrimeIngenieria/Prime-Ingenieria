@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -66,11 +68,13 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none; /* Oculta todas las secciones por defecto */
         }
 
         h2 {
             color: var(--primary-blue);
             font-size: 2.2rem;
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
         }
 
         ul {
@@ -129,12 +133,12 @@
 
     <!-- Menu -->
     <nav>
-        <a href="#quienes-somos">¿Quiénes somos?</a>
-        <a href="#servicios">Nuestros Servicios</a>
-        <a href="#productos">Nuestros Productos</a>
-        <a href="#porque-nosotros">¿Por qué trabajar con nosotros?</a>
-        <a href="#futuro">¿Hablamos del futuro?</a>
-        <a href="#proveedores">Nuestros Proveedores</a>
+        <a href="javascript:void(0)" onclick="toggleSection('quienes-somos')">¿Quiénes somos?</a>
+        <a href="javascript:void(0)" onclick="toggleSection('servicios')">Nuestros Servicios</a>
+        <a href="javascript:void(0)" onclick="toggleSection('productos')">Nuestros Productos</a>
+        <a href="javascript:void(0)" onclick="toggleSection('porque-nosotros')">¿Por qué trabajar con nosotros?</a>
+        <a href="javascript:void(0)" onclick="toggleSection('futuro')">¿Hablamos del futuro?</a>
+        <a href="javascript:void(0)" onclick="toggleSection('proveedores')">Nuestros Proveedores</a>
     </nav>
 
     <!-- Sección: ¿Quiénes somos? -->
@@ -205,6 +209,23 @@
         <p><a href="#contacto">Contáctanos</a></p>
     </footer>
 
+    <script>
+        // Función para alternar la visibilidad de las secciones
+        function toggleSection(sectionId) {
+            // Oculta todas las secciones
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.style.display = 'none');
+            
+            // Muestra la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.style.display = 'block';
+        }
+
+        // Mostrar la primera sección al cargar la página
+        window.onload = function() {
+            toggleSection('quienes-somos');
+        }
+    </script>
+
 </body>
 </html>
-
