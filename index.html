@@ -32,12 +32,13 @@
             background-color: var(--secondary-blue);
             position: fixed;
             top: 0;
-            left: -250px; /* Esconde el menú fuera de la vista */
+            left: 0;
             padding-top: 20px;
             color: white;
             display: flex;
             flex-direction: column;
-            transition: left 0.3s ease; /* Transición más suave */
+            transform: translateX(-100%); /* Oculta el menú fuera de la vista */
+            transition: transform 0.3s ease; /* Transición suave */
         }
 
         .sidebar a {
@@ -47,7 +48,7 @@
             font-size: 1.1rem;
             text-align: left;
             border-bottom: 1px solid #ddd;
-            transition: background-color 0.3s ease; /* Suavizar el efecto hover */
+            transition: background-color 0.3s;
         }
 
         .sidebar a:hover {
@@ -57,15 +58,15 @@
 
         /* Botón hamburguesa */
         .hamburger {
-            display: block;
+            display: none;
             font-size: 30px;
             position: absolute;
             top: 20px;
             left: 20px;
             cursor: pointer;
-            color: var(--dark-gray); /* Color gris oscuro */
+            color: var(--dark-gray); /* Gris oscuro */
             z-index: 999;
-            transition: color 0.3s ease; /* Suavizar el color al pasar el mouse */
+            transition: color 0.3s ease;
         }
 
         .hamburger:hover {
@@ -78,10 +79,10 @@
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
-            transition: margin-left 0.3s ease; /* Suavizar el cambio en el contenido */
+            transition: margin-left 0.3s ease;
         }
 
-        /* Encabezado */
+        /* Header */
         header {
             background-color: white;
             color: var(--primary-blue);
@@ -94,7 +95,6 @@
             font-size: 3rem;
         }
 
-        /* Logo */
         .logo {
             max-width: 145px;
             margin: 10px auto;
@@ -107,25 +107,13 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: none; /* Oculta todas las secciones por defecto */
-            opacity: 0;
-            transition: opacity 0.5s ease; /* Transición suave al mostrar/ocultar secciones */
+            display: none;
         }
 
         h2 {
             color: var(--primary-blue);
             font-size: 2.2rem;
             cursor: pointer;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 10px 0;
-            font-size: 1.1rem;
         }
 
         footer {
@@ -144,57 +132,11 @@
             text-decoration: underline;
         }
 
-        /* Botones */
-        .btn {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            display: inline-block;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #45a049;
-        }
-
         /* Media Queries para pantallas pequeñas */
         @media (max-width: 768px) {
-            /* Reducir el tamaño de la fuente */
-            body {
-                font-size: 14px;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.6rem;
-            }
-
-            h3 {
-                font-size: 1.4rem;
-            }
-
-            .sidebar {
-                width: 250px;
-                position: absolute;
-                top: 0;
-                left: -250px; /* Esconde el menú fuera de la vista */
-                z-index: 100;
-            }
-
             .content {
                 margin-left: 0;
                 padding: 10px;
-            }
-
-            .logo {
-                max-width: 120px;
             }
 
             .hamburger {
@@ -208,22 +150,12 @@
             }
         }
 
-        /* Media Queries para dispositivos móviles */
         @media (max-width: 480px) {
-            /* Menú lateral más pequeño y botón de hamburguesa */
             .sidebar {
                 width: 100%;
-                height: auto;
                 position: fixed;
                 top: 0;
-                left: -100%;
-                transition: left 0.3s ease-in-out;
-            }
-
-            .sidebar a {
-                text-align: center;
-                font-size: 1rem;
-                padding: 10px;
+                left: 0;
             }
 
             .content {
@@ -283,7 +215,7 @@
             </ul>
         </section>
 
-        <!-- Aquí agregarías el resto de las secciones según sea necesario... -->
+        <!-- Aquí agregarías el resto de las secciones... -->
 
         <footer>
             <p>&copy; 2024 Prime Ingeniería. Todos los derechos reservados.</p>
@@ -305,20 +237,18 @@
             toggleSection('quienes-somos');
         }
 
-        // Función para abrir/cerrar el menú en dispositivos móviles con el botón de hamburguesa
+        // Función para abrir/cerrar el menú en dispositivos móviles
         function toggleMenu() {
             const sidebar = document.querySelector('.sidebar');
-
-            // Alternar la visibilidad del menú lateral
-            if (sidebar.style.left === '0px') {
-                sidebar.style.left = '-250px'; // Cierra el menú
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (sidebar.style.transform === 'translateX(0%)') {
+                sidebar.style.transform = 'translateX(-100%)'; // Cierra el menú
             } else {
-                sidebar.style.left = '0'; // Abre el menú
+                sidebar.style.transform = 'translateX(0%)'; // Abre el menú
             }
         }
     </script>
 
 </body>
 </html>
-
-
