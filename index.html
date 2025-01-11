@@ -12,6 +12,7 @@
             --background-color: #F3F4F6; /* Gris claro */
             --text-color: #333; /* Color de texto */
             --accent-color: #4CAF50; /* Color verde para botones */
+            --icon-color: #333; /* Gris oscuro para los iconos */
         }
 
         body {
@@ -63,7 +64,7 @@
             top: 20px;
             left: 20px;
             cursor: pointer;
-            color: white;
+            color: var(--icon-color); /* Gris oscuro */
             z-index: 999;
         }
 
@@ -75,7 +76,7 @@
             top: 20px;
             right: 20px;
             cursor: pointer;
-            color: white;
+            color: var(--icon-color); /* Gris oscuro */
         }
 
         /* Contenedor principal */
@@ -351,17 +352,10 @@
         // Función para alternar la visibilidad de las secciones
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.style.display = 'none';
-                section.style.opacity = '0'; // Asegura que no esté visible
-            });
+            sections.forEach(section => section.style.display = 'none');
             
             const selectedSection = document.getElementById(sectionId);
             selectedSection.style.display = 'block';
-            setTimeout(() => {
-                selectedSection.style.opacity = '1'; // Transición suave
-                selectedSection.style.transform = 'translateY(0)';
-            }, 100);
         }
 
         // Mostrar la primera sección al cargar la página
@@ -372,17 +366,14 @@
         // Función para abrir/cerrar el menú en dispositivos móviles
         function toggleMenu() {
             const sidebar = document.querySelector('.sidebar');
-            sidebar.style.left = '0'; // Abre el menú
-            document.querySelector('.close-menu').style.display = 'block'; // Muestra el icono de cerrar
-        }
-
-        // Función para cerrar el menú en dispositivos móviles
-        function closeMenu() {
-            const sidebar = document.querySelector('.sidebar');
-            sidebar.style.left = '-100%'; // Cierra el menú
-            document.querySelector('.close-menu').style.display = 'none'; // Oculta el icono de cerrar
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-100%'; // Cierra el menú
+            } else {
+                sidebar.style.left = '0'; // Abre el menú
+            }
         }
     </script>
 
 </body>
 </html>
+
