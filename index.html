@@ -23,6 +23,7 @@
             color: var(--text-color);
             display: flex;
             flex-direction: row;
+            transition: margin-left 0.3s ease; /* Para la transición suave */
         }
 
         /* Estilo del menú lateral */
@@ -32,13 +33,12 @@
             background-color: var(--secondary-blue);
             position: fixed;
             top: 0;
-            left: 0;
+            left: -250px; /* Menú fuera de la vista por defecto */
             padding-top: 20px;
             color: white;
             display: flex;
             flex-direction: column;
-            transform: translateX(-100%); /* Oculta el menú fuera de la vista */
-            transition: transform 0.3s ease; /* Transición suave */
+            transition: left 0.3s ease; /* Transición suave */
         }
 
         .sidebar a {
@@ -66,11 +66,6 @@
             cursor: pointer;
             color: var(--dark-gray); /* Gris oscuro */
             z-index: 999;
-            transition: color 0.3s ease;
-        }
-
-        .hamburger:hover {
-            color: var(--primary-blue); /* Cambiar color al pasar el mouse */
         }
 
         /* Contenedor principal */
@@ -79,7 +74,6 @@
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
-            transition: margin-left 0.3s ease;
         }
 
         /* Header */
@@ -155,7 +149,7 @@
                 width: 100%;
                 position: fixed;
                 top: 0;
-                left: 0;
+                left: -100%;
             }
 
             .content {
@@ -215,8 +209,6 @@
             </ul>
         </section>
 
-        <!-- Aquí agregarías el resto de las secciones... -->
-
         <footer>
             <p>&copy; 2024 Prime Ingeniería. Todos los derechos reservados.</p>
         </footer>
@@ -230,6 +222,9 @@
             
             const selectedSection = document.getElementById(sectionId);
             selectedSection.style.display = 'block';
+
+            // Cerrar el menú al hacer clic en una opción
+            toggleMenu();
         }
 
         // Mostrar la primera sección al cargar la página
@@ -241,11 +236,14 @@
         function toggleMenu() {
             const sidebar = document.querySelector('.sidebar');
             const hamburger = document.querySelector('.hamburger');
+            const content = document.querySelector('.content');
             
-            if (sidebar.style.transform === 'translateX(0%)') {
-                sidebar.style.transform = 'translateX(-100%)'; // Cierra el menú
+            if (sidebar.style.left === '0px' || sidebar.style.left === '0%') {
+                sidebar.style.left = '-250px'; // Cierra el menú
+                content.style.marginLeft = '0'; // Vuelve a mover el contenido
             } else {
-                sidebar.style.transform = 'translateX(0%)'; // Abre el menú
+                sidebar.style.left = '0'; // Abre el menú
+                content.style.marginLeft = '250px'; // Mueve el contenido para hacer espacio al menú
             }
         }
     </script>
