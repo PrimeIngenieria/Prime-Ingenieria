@@ -37,7 +37,7 @@
             color: white;
             display: flex;
             flex-direction: column;
-            transition: left 0.5s ease; /* Transición más suave */
+            transition: left 0.3s ease; /* Transición más suave */
         }
 
         .sidebar a {
@@ -57,7 +57,7 @@
 
         /* Botón hamburguesa */
         .hamburger {
-            display: none;
+            display: block;
             font-size: 30px;
             position: absolute;
             top: 20px;
@@ -69,22 +69,6 @@
         }
 
         .hamburger:hover {
-            color: var(--primary-blue); /* Cambiar color al pasar el mouse */
-        }
-
-        /* Botón de cerrar menú */
-        .close-menu {
-            display: none;
-            font-size: 30px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            color: white;
-            transition: color 0.3s ease; /* Suavizar el color al pasar el mouse */
-        }
-
-        .close-menu:hover {
             color: var(--primary-blue); /* Cambiar color al pasar el mouse */
         }
 
@@ -103,7 +87,6 @@
             color: var(--primary-blue);
             padding: 20px;
             text-align: center;
-            transition: background-color 0.3s ease;
         }
 
         header h1 {
@@ -218,10 +201,6 @@
                 display: block;
             }
 
-            .close-menu {
-                display: block;
-            }
-
             .sidebar a {
                 font-size: 1rem;
                 padding: 12px;
@@ -258,8 +237,6 @@
 
     <!-- Botón hamburguesa (solo visible en pantallas pequeñas) -->
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <!-- Botón para cerrar el menú -->
-    <div class="close-menu" onclick="closeMenu()">&#10005;</div>
 
     <!-- Menu Lateral -->
     <div class="sidebar">
@@ -274,4 +251,74 @@
 
     <!-- Contenedor principal -->
     <div class="content">
-        <!-- Header
+        <!-- Header -->
+        <header>
+            <img src="PRIME INGENIERÍA 2.1.png" alt="Logo de Prime Ingeniería" class="logo">
+            <h1>Prime Ingeniería</h1>
+            <p>Innovación y tecnología al servicio de la ingeniería</p>
+        </header>
+
+        <!-- Secciones -->
+        <section id="quienes-somos">
+            <h2>¿Quiénes somos?</h2>
+            <p>Prime Ingeniería es una empresa de ingeniería dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nos especializamos en la creación de estructuras metálicas, calderería, y mobiliario urbano, ofreciendo resultados personalizados para cada cliente.</p>
+        </section>
+
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <h3>Servicios a Empresas Privadas</h3>
+            <ul>
+                <li>Estructuras metálicas según necesidades particulares</li>
+                <li>Cálculo estructural según necesidades</li>
+                <li>Toma de datos y planificación de espacios</li>
+                <li>Calderería industrial de hierro e inoxidable</li>
+                <li>Plataformas terrazas restaurantes</li>
+                <li>Ascensores: barandillas, techo de cabina, chapas de cambio de rasante, etc.</li>
+            </ul>
+
+            <h3>Servicios a Particulares</h3>
+            <ul>
+                <li>Estructura cerramiento terrazas</li>
+                <li>Rampas de adecuación normativa</li>
+            </ul>
+        </section>
+
+        <!-- Aquí agregarías el resto de las secciones según sea necesario... -->
+
+        <footer>
+            <p>&copy; 2024 Prime Ingeniería. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Función para alternar la visibilidad de las secciones
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.style.display = 'none');
+            
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.style.display = 'block';
+        }
+
+        // Mostrar la primera sección al cargar la página
+        window.onload = function() {
+            toggleSection('quienes-somos');
+        }
+
+        // Función para abrir/cerrar el menú en dispositivos móviles con el botón de hamburguesa
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+
+            // Alternar la visibilidad del menú lateral
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px'; // Cierra el menú
+            } else {
+                sidebar.style.left = '0'; // Abre el menú
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
