@@ -23,6 +23,7 @@
             color: var(--text-color);
             display: flex;
             flex-direction: row;
+            transition: margin-left 0.3s ease; /* Suaviza el movimiento del contenido */
         }
 
         /* Estilo del menú lateral */
@@ -37,7 +38,7 @@
             color: white;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease-out, left 0.3s ease-in-out;
             z-index: 999;
         }
 
@@ -52,12 +53,13 @@
             font-size: 1.1rem;
             text-align: left;
             border-bottom: 1px solid #ddd;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, padding 0.3s ease; /* Transición suave */
         }
 
         .sidebar a:hover {
             background-color: #FFEB3B;
             color: #333;
+            padding-left: 25px; /* Desplazamiento suave hacia la derecha */
         }
 
         /* Estilo del botón hamburguesa */
@@ -70,6 +72,11 @@
             cursor: pointer;
             color: var(--dark-gray); /* Gris oscuro */
             z-index: 1000; /* Asegura que el icono esté por encima de otros elementos */
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger.open {
+            transform: rotate(90deg); /* Rotación suave del icono */
         }
 
         /* Contenedor principal */
@@ -78,7 +85,7 @@
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
-            transition: margin-left 0.3s ease;
+            transition: margin-left 0.4s ease-out; /* Suaviza el movimiento del contenido */
         }
 
         /* Encabezado */
@@ -87,6 +94,7 @@
             color: var(--primary-blue);
             padding: 20px;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         header h1 {
@@ -98,6 +106,7 @@
         .logo {
             max-width: 145px;
             margin: 10px auto;
+            transition: transform 0.3s ease;
         }
 
         /* Estilo de las secciones */
@@ -108,6 +117,8 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none; /* Oculta todas las secciones por defecto */
+            opacity: 0;
+            transition: opacity 0.5s ease; /* Suaviza la aparición de la sección */
         }
 
         h2 {
@@ -152,7 +163,7 @@
             font-size: 1.1rem;
             display: inline-block;
             margin-top: 20px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
@@ -308,23 +319,26 @@
             sections.forEach(section => section.style.display = 'none');
             const selectedSection = document.getElementById(sectionId);
             selectedSection.style.display = 'block';
-
+            selectedSection.style.opacity = '1'; /* Se hace visible con la transición */
+            
             // Cerrar el menú desplegable al hacer clic en una opción
             const sidebar = document.querySelector('.sidebar');
-            if (window.innerWidth <= 768) {  // Solo en dispositivos móviles
+            if (window.innerWidth <= 768) {
                 sidebar.classList.remove('open');
             }
-        }
-
-        // Mostrar la primera sección al cargar la página
-        window.onload = function() {
-            toggleSection('quienes-somos');
         }
 
         // Función para abrir/cerrar el menú en dispositivos móviles
         function toggleMenu() {
             const sidebar = document.querySelector('.sidebar');
-            sidebar.classList.toggle('open');
+            sidebar.classList.toggle('open'); // Alterna la clase 'open'
+            const hamburger = document.querySelector('.hamburger');
+            hamburger.classList.toggle('open'); // Hace rotar el icono hamburguesa
+        }
+
+        // Mostrar la primera sección al cargar la página
+        window.onload = function() {
+            toggleSection('quienes-somos');
         }
     </script>
 
