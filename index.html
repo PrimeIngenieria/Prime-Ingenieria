@@ -12,7 +12,6 @@
             --background-color: #F3F4F6; /* Gris claro */
             --text-color: #333; /* Color de texto */
             --accent-color: #4CAF50; /* Color verde para botones */
-            --dark-gray: #333; /* Gris oscuro para hamburguesa */
         }
 
         body {
@@ -23,7 +22,6 @@
             color: var(--text-color);
             display: flex;
             flex-direction: row;
-            transition: margin-left 0.3s ease; /* Para la transición suave */
         }
 
         /* Estilo del menú lateral */
@@ -33,12 +31,12 @@
             background-color: var(--secondary-blue);
             position: fixed;
             top: 0;
-            left: -250px; /* Menú fuera de la vista por defecto */
+            left: 0;
             padding-top: 20px;
             color: white;
             display: flex;
             flex-direction: column;
-            transition: left 0.3s ease; /* Transición suave */
+            transition: transform 0.3s ease;
         }
 
         .sidebar a {
@@ -64,7 +62,7 @@
             top: 20px;
             left: 20px;
             cursor: pointer;
-            color: var(--dark-gray); /* Gris oscuro */
+            color: white;
             z-index: 999;
         }
 
@@ -76,7 +74,7 @@
             box-sizing: border-box;
         }
 
-        /* Header */
+        /* Encabezado */
         header {
             background-color: white;
             color: var(--primary-blue);
@@ -89,6 +87,7 @@
             font-size: 3rem;
         }
 
+        /* Logo */
         .logo {
             max-width: 145px;
             margin: 10px auto;
@@ -101,13 +100,23 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: none;
+            display: none; /* Oculta todas las secciones por defecto */
         }
 
         h2 {
             color: var(--primary-blue);
             font-size: 2.2rem;
             cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.1rem;
         }
 
         footer {
@@ -126,11 +135,57 @@
             text-decoration: underline;
         }
 
+        /* Botones */
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
         /* Media Queries para pantallas pequeñas */
         @media (max-width: 768px) {
+            /* Reducir el tamaño de la fuente */
+            body {
+                font-size: 14px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            .sidebar {
+                width: 250px;
+                position: absolute;
+                top: 0;
+                left: -250px; /* Esconde el menú fuera de la vista */
+                z-index: 100;
+            }
+
             .content {
                 margin-left: 0;
                 padding: 10px;
+            }
+
+            .logo {
+                max-width: 120px;
             }
 
             .hamburger {
@@ -144,12 +199,22 @@
             }
         }
 
+        /* Media Queries para dispositivos móviles */
         @media (max-width: 480px) {
+            /* Menú lateral más pequeño y botón de hamburguesa */
             .sidebar {
                 width: 100%;
+                height: auto;
                 position: fixed;
                 top: 0;
                 left: -100%;
+                transition: left 0.3s ease-in-out;
+            }
+
+            .sidebar a {
+                text-align: center;
+                font-size: 1rem;
+                padding: 10px;
             }
 
             .content {
@@ -184,7 +249,107 @@
             <p>Innovación y tecnología al servicio de la ingeniería</p>
         </header>
 
-        <!-- Secciones -->
+        <!-- Secciones (las mismas que ya tienes) -->
+        <!-- Sección: ¿Quiénes somos? -->
         <section id="quienes-somos">
             <h2>¿Quiénes somos?</h2>
-            <p>Prime Ingeniería es una empresa de ingeniería dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nos especializamos 
+            <p>Prime Ingeniería es una empresa de ingeniería dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nos especializamos en la creación de estructuras metálicas, calderería, y mobiliario urbano, ofreciendo resultados personalizados para cada cliente.</p>
+        </section>
+
+        <!-- Sección: Nuestros Servicios -->
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <h3>Servicios a Empresas Privadas</h3>
+            <ul>
+                <li>Estructuras metálicas según necesidades particulares</li>
+                <li>Cálculo estructural según necesidades</li>
+                <li>Toma de datos y planificación de espacios</li>
+                <li>Calderería industrial de hierro e inoxidable</li>
+                <li>Plataformas terrazas restaurantes</li>
+                <li>Ascensores: barandillas, techo de cabina, chapas de cambio de rasante, etc.</li>
+            </ul>
+
+            <h3>Servicios a Particulares</h3>
+            <ul>
+                <li>Estructura cerramiento terrazas</li>
+                <li>Rampas de adecuación normativa</li>
+            </ul>
+        </section>
+
+        <!-- Sección: Productos -->
+        <section id="productos">
+            <h2>Productos</h2>
+            <h3>Transporte en fábrica</h3>
+            <ul>
+                <li>Cintas transportadoras</li>
+                <li>Mesas rodilleras transportadoras</li>
+            </ul>
+
+            <h3>Mobiliario Urbano</h3>
+            <ul>
+                <li>Contenedores de residuos</li>
+                <li>Barandillas urbanas</li>
+                <li>Soportes cartelera urbana</li>
+            </ul>
+        </section>
+
+        <!-- Sección: ¿Por qué trabajar con nosotros? -->
+        <section id="porque-nosotros">
+            <h2>¿Por qué trabajar con nosotros?</h2>
+            <p>En Prime Ingeniería, nuestro compromiso es con la calidad, la innovación y el desarrollo tecnológico. Trabajamos con los mejores materiales y las últimas tecnologías para garantizar que nuestros proyectos sean exitosos y eficientes. Nuestro equipo altamente capacitado se dedica a ofrecer soluciones personalizadas a cada cliente.</p>
+            <a href="#contacto" class="btn">Contáctanos</a>
+        </section>
+
+        <!-- Sección: ¿Hablamos del futuro? -->
+        <section id="futuro">
+            <h2>¿Hablamos del futuro?</h2>
+            <p>En Prime Ingeniería, siempre estamos mirando hacia el futuro. Creemos en la innovación continua y en el uso de tecnologías avanzadas para crear soluciones que transformen los sectores industriales y privados. Estamos listos para los retos del mañana.</p>
+        </section>
+
+        <!-- Sección: Proveedores -->
+        <section id="proveedores">
+            <h2>Proveedores</h2>
+            <p>Colaboramos con proveedores de primer nivel, que nos proporcionan materiales de alta calidad y soluciones tecnológicas avanzadas. Juntos, garantizamos la excelencia en todos nuestros proyectos.</p>
+        </section>
+
+        <!-- Sección de contacto -->
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <p>Nos encontramos en Castellón de la Plana.</p>
+            <p>Para más información, puedes escribirnos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Prime Ingeniería. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Función para alternar la visibilidad de las secciones
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.style.display = 'none');
+            
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.style.display = 'block';
+        }
+
+        // Mostrar la primera sección al cargar la página
+        window.onload = function() {
+            toggleSection('quienes-somos');
+        }
+
+        // Función para abrir/cerrar el menú en dispositivos móviles
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-100%'; // Cierra el menú
+            } else {
+                sidebar.style.left = '0'; // Abre el menú
+            }
+        }
+    </script>
+
+</body>
+</html>
