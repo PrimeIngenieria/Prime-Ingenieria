@@ -54,7 +54,7 @@
             color: #333;
         }
 
-        /* Botón hamburguesa */
+        /* Estilo del botón hamburguesa */
         .hamburger {
             display: none;
             font-size: 30px;
@@ -62,7 +62,7 @@
             top: 20px;
             left: 20px;
             cursor: pointer;
-            color: white;
+            color: #333; /* Gris oscuro */
             z-index: 999;
         }
 
@@ -307,49 +307,4 @@
         </section>
 
         <!-- Sección: Proveedores -->
-        <section id="proveedores">
-            <h2>Proveedores</h2>
-            <p>Colaboramos con proveedores de primer nivel, que nos proporcionan materiales de alta calidad y soluciones tecnológicas avanzadas. Juntos, garantizamos la excelencia en todos nuestros proyectos.</p>
-        </section>
-
-        <!-- Sección de contacto -->
-        <section id="contacto">
-            <h2>Contáctanos</h2>
-            <p>Nos encontramos en Castellón de la Plana.</p>
-            <p>Para más información, puedes escribirnos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Prime Ingeniería. Todos los derechos reservados.</p>
-        </footer>
-    </div>
-
-    <script>
-        // Función para alternar la visibilidad de las secciones
-        function toggleSection(sectionId) {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.style.display = 'none');
-            
-            const selectedSection = document.getElementById(sectionId);
-            selectedSection.style.display = 'block';
-        }
-
-        // Mostrar la primera sección al cargar la página
-        window.onload = function() {
-            toggleSection('quienes-somos');
-        }
-
-        // Función para abrir/cerrar el menú en dispositivos móviles
-        function toggleMenu() {
-            const sidebar = document.querySelector('.sidebar');
-            if (sidebar.style.left === '0px') {
-                sidebar.style.left = '-100%'; // Cierra el menú
-            } else {
-                sidebar.style.left = '0'; // Abre el menú
-            }
-        }
-    </script>
-
-</body>
-</html>
+        <section id
