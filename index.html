@@ -12,6 +12,7 @@
             --background-color: #F3F4F6; /* Gris claro */
             --text-color: #333; /* Color de texto */
             --accent-color: #4CAF50; /* Color verde para botones */
+            --dark-gray: #333; /* Gris oscuro para hamburguesa */
         }
 
         body {
@@ -31,12 +32,12 @@
             background-color: var(--secondary-blue);
             position: fixed;
             top: 0;
-            left: 0;
+            left: -250px; /* Esconde el menú fuera de la vista */
             padding-top: 20px;
             color: white;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            transition: left 0.5s ease; /* Transición más suave */
         }
 
         .sidebar a {
@@ -46,7 +47,7 @@
             font-size: 1.1rem;
             text-align: left;
             border-bottom: 1px solid #ddd;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease; /* Suavizar el efecto hover */
         }
 
         .sidebar a:hover {
@@ -62,8 +63,29 @@
             top: 20px;
             left: 20px;
             cursor: pointer;
-            color: white;
+            color: var(--dark-gray); /* Color gris oscuro */
             z-index: 999;
+            transition: color 0.3s ease; /* Suavizar el color al pasar el mouse */
+        }
+
+        .hamburger:hover {
+            color: var(--primary-blue); /* Cambiar color al pasar el mouse */
+        }
+
+        /* Botón de cerrar menú */
+        .close-menu {
+            display: none;
+            font-size: 30px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            color: white;
+            transition: color 0.3s ease; /* Suavizar el color al pasar el mouse */
+        }
+
+        .close-menu:hover {
+            color: var(--primary-blue); /* Cambiar color al pasar el mouse */
         }
 
         /* Contenedor principal */
@@ -72,6 +94,7 @@
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
+            transition: margin-left 0.3s ease; /* Suavizar el cambio en el contenido */
         }
 
         /* Encabezado */
@@ -80,6 +103,7 @@
             color: var(--primary-blue);
             padding: 20px;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         header h1 {
@@ -101,6 +125,8 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none; /* Oculta todas las secciones por defecto */
+            opacity: 0;
+            transition: opacity 0.5s ease; /* Transición suave al mostrar/ocultar secciones */
         }
 
         h2 {
@@ -145,7 +171,7 @@
             font-size: 1.1rem;
             display: inline-block;
             margin-top: 20px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
@@ -192,6 +218,10 @@
                 display: block;
             }
 
+            .close-menu {
+                display: block;
+            }
+
             .sidebar a {
                 font-size: 1rem;
                 padding: 12px;
@@ -228,6 +258,8 @@
 
     <!-- Botón hamburguesa (solo visible en pantallas pequeñas) -->
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <!-- Botón para cerrar el menú -->
+    <div class="close-menu" onclick="closeMenu()">&#10005;</div>
 
     <!-- Menu Lateral -->
     <div class="sidebar">
@@ -249,14 +281,12 @@
             <p>Innovación y tecnología al servicio de la ingeniería</p>
         </header>
 
-        <!-- Secciones (las mismas que ya tienes) -->
-        <!-- Sección: ¿Quiénes somos? -->
+        <!-- Secciones -->
         <section id="quienes-somos">
             <h2>¿Quiénes somos?</h2>
             <p>Prime Ingeniería es una empresa de ingeniería dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nos especializamos en la creación de estructuras metálicas, calderería, y mobiliario urbano, ofreciendo resultados personalizados para cada cliente.</p>
         </section>
 
-        <!-- Sección: Nuestros Servicios -->
         <section id="servicios">
             <h2>Nuestros Servicios</h2>
             <h3>Servicios a Empresas Privadas</h3>
@@ -276,7 +306,6 @@
             </ul>
         </section>
 
-        <!-- Sección: Productos -->
         <section id="productos">
             <h2>Productos</h2>
             <h3>Transporte en fábrica</h3>
@@ -293,30 +322,20 @@
             </ul>
         </section>
 
-        <!-- Sección: ¿Por qué trabajar con nosotros? -->
         <section id="porque-nosotros">
             <h2>¿Por qué trabajar con nosotros?</h2>
             <p>En Prime Ingeniería, nuestro compromiso es con la calidad, la innovación y el desarrollo tecnológico. Trabajamos con los mejores materiales y las últimas tecnologías para garantizar que nuestros proyectos sean exitosos y eficientes. Nuestro equipo altamente capacitado se dedica a ofrecer soluciones personalizadas a cada cliente.</p>
             <a href="#contacto" class="btn">Contáctanos</a>
         </section>
 
-        <!-- Sección: ¿Hablamos del futuro? -->
         <section id="futuro">
             <h2>¿Hablamos del futuro?</h2>
             <p>En Prime Ingeniería, siempre estamos mirando hacia el futuro. Creemos en la innovación continua y en el uso de tecnologías avanzadas para crear soluciones que transformen los sectores industriales y privados. Estamos listos para los retos del mañana.</p>
         </section>
 
-        <!-- Sección: Proveedores -->
         <section id="proveedores">
             <h2>Proveedores</h2>
             <p>Colaboramos con proveedores de primer nivel, que nos proporcionan materiales de alta calidad y soluciones tecnológicas avanzadas. Juntos, garantizamos la excelencia en todos nuestros proyectos.</p>
-        </section>
-
-        <!-- Sección de contacto -->
-        <section id="contacto">
-            <h2>Contáctanos</h2>
-            <p>Nos encontramos en Castellón de la Plana.</p>
-            <p>Para más información, puedes escribirnos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
         </section>
 
         <!-- Footer -->
@@ -329,10 +348,14 @@
         // Función para alternar la visibilidad de las secciones
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.style.display = 'none');
+            sections.forEach(section => {
+                section.style.display = 'none';
+                section.style.opacity = '0'; // Desaparece la sección de manera suave
+            });
             
             const selectedSection = document.getElementById(sectionId);
             selectedSection.style.display = 'block';
+            setTimeout(() => { selectedSection.style.opacity = '1'; }, 10); // Suaviza la aparición
         }
 
         // Mostrar la primera sección al cargar la página
@@ -343,13 +366,16 @@
         // Función para abrir/cerrar el menú en dispositivos móviles
         function toggleMenu() {
             const sidebar = document.querySelector('.sidebar');
-            if (sidebar.style.left === '0px') {
-                sidebar.style.left = '-100%'; // Cierra el menú
-            } else {
-                sidebar.style.left = '0'; // Abre el menú
-            }
+            sidebar.style.left = '0'; // Abre el menú de manera suave
+            document.querySelector('.close-menu').style.display = 'block'; // Muestra el botón de cerrar
+        }
+
+        // Función para cerrar el menú
+        function closeMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.left = '-100%'; // Cierra el menú de manera suave
+            document.querySelector('.close-menu').style.display = 'none'; // Oculta el botón de cerrar
         }
     </script>
-
 </body>
 </html>
