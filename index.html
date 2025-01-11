@@ -32,17 +32,17 @@
             background-color: var(--secondary-blue);
             position: fixed;
             top: 0;
-            left: 0;
+            left: -250px; /* El menú está fuera de la pantalla por defecto */
             padding-top: 20px;
             color: white;
             display: flex;
             flex-direction: column;
             transition: transform 0.3s ease;
-            transform: translateX(-100%); /* El menú está fuera de la pantalla por defecto */
+            z-index: 999;
         }
 
         .sidebar.open {
-            transform: translateX(0); /* Mueve el menú lateral dentro de la pantalla */
+            left: 0; /* Cuando la clase "open" se activa, el menú se desliza hacia adentro */
         }
 
         .sidebar a {
@@ -69,7 +69,7 @@
             left: 20px;
             cursor: pointer;
             color: var(--dark-gray); /* Gris oscuro */
-            z-index: 999;
+            z-index: 1000; /* Asegura que el icono esté por encima de otros elementos */
         }
 
         /* Contenedor principal */
@@ -78,6 +78,7 @@
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
+            transition: margin-left 0.3s ease;
         }
 
         /* Encabezado */
@@ -331,3 +332,4 @@
 
 </body>
 </html>
+
