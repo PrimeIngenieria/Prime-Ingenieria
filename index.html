@@ -37,6 +37,7 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.3s ease;
+            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2); /* Sombra añadida */
         }
 
         .sidebar a {
@@ -66,12 +67,25 @@
             z-index: 999;
         }
 
+        /* Botón de cerrar menú */
+        .close-menu {
+            display: none;
+            font-size: 30px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            color: white;
+        }
+
         /* Contenedor principal */
         .content {
             margin-left: 250px;
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
+            opacity: 1;
+            transition: opacity 0.5s ease;
         }
 
         /* Encabezado */
@@ -101,6 +115,9 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none; /* Oculta todas las secciones por defecto */
+            transform: translateY(20px);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         h2 {
@@ -197,6 +214,10 @@
                 padding: 12px;
                 text-align: center;
             }
+
+            .close-menu {
+                display: block;
+            }
         }
 
         /* Media Queries para dispositivos móviles */
@@ -228,6 +249,7 @@
 
     <!-- Botón hamburguesa (solo visible en pantallas pequeñas) -->
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <div class="close-menu" onclick="closeMenu()">&#10005;</div>
 
     <!-- Menu Lateral -->
     <div class="sidebar">
@@ -329,10 +351,17 @@
         // Función para alternar la visibilidad de las secciones
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.style.display = 'none');
+            sections.forEach(section => {
+                section.style.display = 'none';
+                section.style.opacity = '0'; // Asegura que no esté visible
+            });
             
             const selectedSection = document.getElementById(sectionId);
             selectedSection.style.display = 'block';
+            setTimeout(() => {
+                selectedSection.style.opacity = '1'; // Transición suave
+                selectedSection.style.transform = 'translateY(0)';
+            }, 100);
         }
 
         // Mostrar la primera sección al cargar la página
@@ -343,11 +372,15 @@
         // Función para abrir/cerrar el menú en dispositivos móviles
         function toggleMenu() {
             const sidebar = document.querySelector('.sidebar');
-            if (sidebar.style.left === '0px') {
-                sidebar.style.left = '-100%'; // Cierra el menú
-            } else {
-                sidebar.style.left = '0'; // Abre el menú
-            }
+            sidebar.style.left = '0'; // Abre el menú
+            document.querySelector('.close-menu').style.display = 'block'; // Muestra el icono de cerrar
+        }
+
+        // Función para cerrar el menú en dispositivos móviles
+        function closeMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.left = '-100%'; // Cierra el menú
+            document.querySelector('.close-menu').style.display = 'none'; // Oculta el icono de cerrar
         }
     </script>
 
