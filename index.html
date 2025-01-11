@@ -304,6 +304,10 @@
             sections.forEach(section => section.style.display = 'none');
             const selectedSection = document.getElementById(sectionId);
             selectedSection.style.display = 'block';
+
+            // Cerrar el menú desplegable al hacer clic en una opción
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.left = '-250px'; // Cierra el menú
         }
 
         // Mostrar la primera sección al cargar la página
