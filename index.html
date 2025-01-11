@@ -12,7 +12,6 @@
             --background-color: #F3F4F6; /* Gris claro */
             --text-color: #333; /* Color de texto */
             --accent-color: #4CAF50; /* Color verde para botones */
-            --icon-color: #333; /* Gris oscuro para los iconos */
         }
 
         body {
@@ -38,7 +37,6 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.3s ease;
-            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2); /* Sombra añadida */
         }
 
         .sidebar a {
@@ -64,19 +62,8 @@
             top: 20px;
             left: 20px;
             cursor: pointer;
-            color: var(--icon-color); /* Gris oscuro */
+            color: white;
             z-index: 999;
-        }
-
-        /* Botón de cerrar menú */
-        .close-menu {
-            display: none;
-            font-size: 30px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            color: var(--icon-color); /* Gris oscuro */
         }
 
         /* Contenedor principal */
@@ -85,8 +72,6 @@
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
-            opacity: 1;
-            transition: opacity 0.5s ease;
         }
 
         /* Encabezado */
@@ -116,9 +101,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none; /* Oculta todas las secciones por defecto */
-            transform: translateY(20px);
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         h2 {
@@ -215,10 +197,6 @@
                 padding: 12px;
                 text-align: center;
             }
-
-            .close-menu {
-                display: block;
-            }
         }
 
         /* Media Queries para dispositivos móviles */
@@ -250,7 +228,6 @@
 
     <!-- Botón hamburguesa (solo visible en pantallas pequeñas) -->
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <div class="close-menu" onclick="closeMenu()">&#10005;</div>
 
     <!-- Menu Lateral -->
     <div class="sidebar">
@@ -376,4 +353,3 @@
 
 </body>
 </html>
-
