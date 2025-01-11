@@ -32,18 +32,17 @@
             background-color: var(--secondary-blue);
             position: fixed;
             top: 0;
-            left: 0; /* Asegura que el menú esté visible en todo momento en pantallas grandes */
+            left: -250px; /* Inicialmente el menú está oculto */
             padding-top: 20px;
             color: white;
             display: flex;
             flex-direction: column;
             transition: transform 0.3s ease;
             z-index: 999;
-            transform: translateX(-100%); /* Inicialmente está oculto en pantallas pequeñas */
         }
 
         .sidebar.open {
-            transform: translateX(0); /* Se muestra cuando la clase "open" está presente */
+            left: 0; /* Cuando se agrega la clase 'open', se muestra el menú */
         }
 
         .sidebar a {
@@ -182,7 +181,7 @@
                 width: 250px;
                 position: absolute;
                 top: 0;
-                left: -250px; /* Esconde el menú fuera de la vista en móvil */
+                left: -250px; /* Esconde el menú fuera de la vista */
                 z-index: 100;
             }
 
