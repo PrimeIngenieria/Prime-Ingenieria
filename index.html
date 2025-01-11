@@ -32,17 +32,13 @@
             background-color: var(--secondary-blue);
             position: fixed;
             top: 0;
-            left: -250px; /* El menú está fuera de la pantalla por defecto */
+            left: 0; /* Asegura que el menú esté visible en todo momento en pantallas grandes */
             padding-top: 20px;
             color: white;
             display: flex;
             flex-direction: column;
             transition: transform 0.3s ease;
             z-index: 999;
-        }
-
-        .sidebar.open {
-            left: 0; /* Cuando la clase "open" se activa, el menú se desliza hacia adentro */
         }
 
         .sidebar a {
@@ -159,7 +155,7 @@
             background-color: #45a049;
         }
 
-        /* Media Queries para pantallas pequeñas */
+        /* Media Queries para pantallas pequeñas (móviles) */
         @media (max-width: 768px) {
             body {
                 font-size: 14px;
@@ -205,25 +201,18 @@
             }
         }
 
-        /* Media Queries para dispositivos móviles */
-        @media (max-width: 480px) {
+        /* Media Queries para dispositivos horizontales o pantallas grandes */
+        @media (min-width: 769px) {
             .sidebar {
-                width: 100%;
-                height: auto;
                 position: fixed;
                 top: 0;
-                left: -100%; /* Esconde el menú fuera de la vista */
-                transition: left 0.3s ease-in-out;
-            }
-
-            .sidebar a {
-                text-align: center;
-                font-size: 1rem;
-                padding: 10px;
+                left: 0;
+                width: 250px; /* El menú lateral será visible siempre */
+                z-index: 100;
             }
 
             .content {
-                margin-left: 0;
+                margin-left: 250px;
             }
         }
 
@@ -332,4 +321,3 @@
 
 </body>
 </html>
-
