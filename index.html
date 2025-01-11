@@ -32,7 +32,7 @@
             background-color: var(--secondary-blue);
             position: fixed;
             top: 0;
-            left: -250px; /* Inicialmente fuera de vista */
+            left: -250px; /* Inicialmente fuera de vista en dispositivos móviles */
             padding-top: 20px;
             color: white;
             display: flex;
@@ -175,7 +175,7 @@
                 width: 250px;
                 position: absolute;
                 top: 0;
-                left: -250px; /* Esconde el menú fuera de la vista */
+                left: -250px; /* Esconde el menú fuera de la vista en móvil */
                 z-index: 100;
             }
 
@@ -307,7 +307,9 @@
 
             // Cerrar el menú desplegable al hacer clic en una opción
             const sidebar = document.querySelector('.sidebar');
-            sidebar.style.left = '-250px'; // Cierra el menú en dispositivos móviles
+            if (window.innerWidth <= 768) {  // Solo en dispositivos móviles
+                sidebar.style.left = '-250px'; // Cierra el menú en dispositivos móviles
+            }
         }
 
         // Mostrar la primera sección al cargar la página
@@ -318,7 +320,7 @@
         // Función para abrir/cerrar el menú en dispositivos móviles
         function toggleMenu() {
             const sidebar = document.querySelector('.sidebar');
-            if (sidebar.style.left === '0px') {
+            if (sidebar.style.left === '0px' || sidebar.style.left === '') {
                 sidebar.style.left = '-250px'; // Cierra el menú
             } else {
                 sidebar.style.left = '0'; // Abre el menú
