@@ -39,6 +39,11 @@
             flex-direction: column;
             transition: transform 0.3s ease;
             z-index: 999;
+            transform: translateX(-100%); /* Inicialmente está oculto en pantallas pequeñas */
+        }
+
+        .sidebar.open {
+            transform: translateX(0); /* Se muestra cuando la clase "open" está presente */
         }
 
         .sidebar a {
@@ -209,10 +214,15 @@
                 left: 0;
                 width: 250px; /* El menú lateral será visible siempre */
                 z-index: 100;
+                transform: translateX(0); /* Siempre visible en pantallas grandes */
             }
 
             .content {
                 margin-left: 250px;
+            }
+
+            .hamburger {
+                display: none; /* Esconde el botón hamburguesa en pantallas grandes */
             }
         }
 
