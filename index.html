@@ -38,12 +38,12 @@
             color: white;
             display: flex;
             flex-direction: column;
-            transition: transform 0.4s ease-out, left 0.3s ease-in-out;
+            transition: transform 0.4s ease-out; /* Suaviza el movimiento de apertura/cierre */
             z-index: 999;
         }
 
         .sidebar.open {
-            left: 0; /* Cuando se agrega la clase 'open', se muestra el menú */
+            transform: translateX(250px); /* Desliza el menú hacia la derecha */
         }
 
         .sidebar a {
@@ -53,13 +53,13 @@
             font-size: 1.1rem;
             text-align: left;
             border-bottom: 1px solid #ddd;
-            transition: background-color 0.3s, padding 0.3s ease; /* Transición suave */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transición de hover más suave */
         }
 
         .sidebar a:hover {
             background-color: #FFEB3B;
             color: #333;
-            padding-left: 25px; /* Desplazamiento suave hacia la derecha */
+            transform: translateX(10px); /* Desliza el enlace ligeramente hacia la derecha */
         }
 
         /* Estilo del botón hamburguesa */
@@ -118,7 +118,14 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none; /* Oculta todas las secciones por defecto */
             opacity: 0;
-            transition: opacity 0.5s ease; /* Suaviza la aparición de la sección */
+            transform: translateY(-20px); /* Hace que las secciones se deslicen hacia abajo */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Añadimos transiciones */
+        }
+
+        section.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0); /* Se mueve a su posición original */
         }
 
         h2 {
@@ -137,7 +144,7 @@
             font-size: 1.1rem;
         }
 
-                footer {
+        footer {
             text-align: center;
             padding: 20px;
             background-color: var(--primary-blue);
@@ -381,16 +388,11 @@
         // Función para alternar la visibilidad de las secciones
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.style.display = 'none');
+            sections.forEach(section => {
+                section.classList.remove('show'); // Oculta todas las secciones
+            });
             const selectedSection = document.getElementById(sectionId);
-            selectedSection.style.display = 'block';
-            selectedSection.style.opacity = '1'; /* Se hace visible con la transición */
-            
-            // Cerrar el menú desplegable al hacer clic en una opción
-            const sidebar = document.querySelector('.sidebar');
-            if (window.innerWidth <= 768) {
-                sidebar.classList.remove('open');
-            }
+            selectedSection.classList.add('show'); // Muestra la sección con la transición
         }
 
         // Función para abrir/cerrar el menú en dispositivos móviles
