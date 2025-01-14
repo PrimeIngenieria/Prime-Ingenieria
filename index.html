@@ -236,6 +236,40 @@
             }
         }
 
+        /* Estilo de la sección de evolución de los logos */
+        .evolucion-logos {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap; /* Para que las imágenes se ajusten en pantallas pequeñas */
+        }
+
+        .logo-item {
+            text-align: center;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .logo-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
     </style>
 </head>
 <body>
@@ -265,9 +299,31 @@
         <!-- Secciones -->
         <section id="quienes-somos">
             <h2>¿Quiénes somos?</h2>
-            <p>Prime Ingeniería es una empresa nacida en el año 2022 dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nuestro objetivo es garantizar a nuestros clietes las soluciones óptimas a sus problemas e inquietudes. Inicialmente se presentó como una oficina técnica de apoyo a los clientes. Actualmente, desarrolla sus propios productos, muchos de ellos enfocados al transporte de artículos en fábrica.</p>
+            <p>Prime Ingeniería es una empresa nacida en el año 2022 dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nuestro objetivo es garantizar a nuestros clientes las soluciones óptimas a sus problemas e inquietudes. Inicialmente se presentó como una oficina técnica de apoyo a los clientes. Actualmente, desarrolla sus propios productos, muchos de ellos enfocados al transporte de artículos en fábrica.</p>
+            
+            <!-- Evolución de los logos -->
+            <div class="evolucion-logos">
+                <div class="logo-item">
+                    <h3>2022 - LOGO PRIME INGENIERÍA</h3>
+                    <img src="imagenes/logo-prime-ingenieria.jpg" alt="Logo Prime Ingeniería 2022" style="width: 100%; max-width: 300px; border-radius: 8px;">
+                    <p>Este fue el logo que representó nuestra imagen en el año 2022.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>2023 - LOGO PRIME INGENIERÍA PLANOS</h3>
+                    <img src="imagenes/logo-prime-ingenieria-planos.jpg" alt="Logo Prime Ingeniería Planos 2023" style="width: 100%; max-width: 300px; border-radius: 8px;">
+                    <p>Desde 2023, este logo refleja nuestra especialización en planos y diseño técnico.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>2025 - PRIME INGENIERÍA 2.4</h3>
+                    <img src="imagenes/prime-ingenieria-2-4.jpg" alt="Logo Prime Ingeniería 2.4 2025" style="width: 100%; max-width: 300px; border-radius: 8px;">
+                    <p>Este logo simboliza nuestra ambición de estar siempre en lo más alto, con el color azul representando el cielo y la dirección hacia arriba, buscando siempre la excelencia.</p>
+                </div>
+            </div>
         </section>
 
+        <!-- Otras secciones -->
         <section id="servicios">
             <h2>Nuestros Servicios</h2>
             <ul>
@@ -283,14 +339,11 @@
                 <li>· Cintas transportadoras.</li>
                 <li>· Mesas rodilleras.</li>
             </ul>
-            
-            <!-- Agregar la imagen debajo de las opciones de productos -->
-            <img src="EJEMPLO_BANDA_PW.png" alt="Ejemplo Banda PW" style="width: 100%; max-width: 600px; margin-top: 20px; border-radius: 8px;">
         </section>
 
         <section id="porque-nosotros">
             <h2>¿Por qué trabajar con nosotros?</h2>
-            <p>Nos especializamos en ofrecer soluciones innovadoras y personalizadas, con un equipo altamente capacitado y tecnología avanzada. Gracias a nuestra flexibilidad y cercanía con el cliente conseguimos un 100% de efectividad en cada uno de nuestros proyectos. </p>
+            <p>Nos especializamos en ofrecer soluciones innovadoras y personalizadas, con un equipo altamente capacitado y tecnología avanzada. Gracias a nuestra flexibilidad y cercanía con el cliente conseguimos un 100% de efectividad en cada uno de nuestros proyectos.</p>
         </section>
 
         <section id="futuro">
