@@ -118,15 +118,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none; /* Oculta todas las secciones por defecto */
             opacity: 0;
-            transform: translateY(10px); /* Empezar ligeramente desplazado */
-            transition: opacity 0.5s ease, transform 0.5s ease; /* Animaciones más suaves */
-        }
-
-        /* Estilo cuando la sección está activa */
-        section.active {
-            display: block;
-            opacity: 1; /* Hacer visible */
-            transform: translateY(0); /* Desplazar al lugar original */
+            transition: opacity 0.5s ease; /* Suaviza la aparición de la sección */
         }
 
         h2 {
@@ -158,11 +150,11 @@
         }
 
         footer p {
-            color: white !important; /* También para los párrafos dentro del footer */
+            color: white !important;
         }
 
         footer a {
-            color: white !important; /* También para los enlaces dentro del footer */
+            color: white !important;
         }
 
         footer a:hover {
@@ -184,6 +176,35 @@
 
         .btn:hover {
             background-color: #45a049;
+        }
+
+        /* Estilo de la Oficina Técnica */
+        .oficina-tecnica {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .oficina-tecnica-texto {
+            max-width: 50%;
+        }
+
+        .oficina-tecnica-texto h3 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .oficina-tecnica-texto ul li {
+            font-size: 1.1rem;
+            margin: 5px 0;
+            font-weight: bold; /* Puntos en negrita */
+        }
+
+        .oficina-tecnica img {
+            width: 45%;
+            border-radius: 8px;
         }
 
         /* Media Queries para pantallas pequeñas (móviles) */
@@ -230,6 +251,16 @@
                 padding: 12px;
                 text-align: center;
             }
+
+            .oficina-tecnica {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .oficina-tecnica img {
+                width: 80%;
+                margin-top: 20px;
+            }
         }
 
         /* Media Queries para dispositivos horizontales o pantallas grandes */
@@ -250,40 +281,6 @@
             .hamburger {
                 display: none; /* Esconde el botón hamburguesa en pantallas grandes */
             }
-        }
-
-        /* Estilo de la sección de evolución de los logos */
-        .evolucion-logos {
-            display: flex;
-            justify-content: space-around;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap; /* Para que las imágenes se ajusten en pantallas pequeñas */
-        }
-
-        .logo-item {
-            text-align: center;
-            max-width: 300px;
-            margin-bottom: 20px;
-        }
-
-        .logo-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        h3 {
-            color: var(--primary-blue);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            color: var(--text-color);
-            line-height: 1.5;
         }
 
     </style>
@@ -312,74 +309,26 @@
             <p>Innovación y tecnología al servicio de la ingeniería</p>
         </header>
 
-        <!-- Secciones -->
-        <section id="quienes-somos">
-            <h2>¿Quiénes somos?</h2>
-            <p>Prime Ingeniería es una empresa nacida en el año 2022 dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nuestro objetivo es garantizar a nuestros clientes las soluciones óptimas a sus problemas e inquietudes. Inicialmente se presentó como una oficina técnica de apoyo a los clientes. Actualmente, desarrolla sus propios productos, muchos de ellos enfocados al transporte de artículos en fábrica.</p>
-            
-            <!-- Evolución de los logos -->
-            <div class="evolucion-logos">
-                <div class="logo-item">
-                    <h3>AÑO 2022</h3>
-                    <img src="LOGO PRIME INGENIERÍA.png" alt="Logo Prime Ingeniería 2022" style="width: 100%; max-width: 300px; border-radius: 8px;">
-                    <p>Este fue el logo que representó nuestra imagen en el año 2022. Se trataba de un logo realizado como boceto del que presentaríamos de manera oficial al inicio del año 2023.</p>
-                </div>
-                
-                <div class="logo-item">
-                    <h3>AÑO 2023</h3>
-                    <img src="LOGO PRIME INGENIERÍA PLANOS.png" alt="Logo Prime Ingeniería Planos 2023" style="width: 100%; max-width: 300px; border-radius: 8px;">
-                    <p>Desde 2023, este logo reflejó nuestra especialización en planos y diseño técnico.</p>
-                </div>
-                
-                <div class="logo-item">
-                    <h3>AÑO 2025</h3>
-                    <img src="PRIME INGENIERÍA 2.4.png" alt="Logo Prime Ingeniería 2.4 2025" style="width: 100%; max-width: 300px; border-radius: 4px;">
-                    <p>La presentación de este último logo simboliza nuestra ambición de buscar siempre la excelencia. El color azul representa el cielo y se puede observar un triángulo con el vértice en la parte superior, lo cual simboliza el objetivo de permanecer siempre en lo más alto.</p>
-                </div>
+        <!-- Sección Oficina Técnica -->
+        <div class="oficina-tecnica">
+            <div class="oficina-tecnica-texto">
+                <h3>Oficina Técnica</h3>
+                <ul>
+                    <li>· Analizamos vuestro problema.</li>
+                    <li>· Buscamos una solución específica.</li>
+                    <li>· Planificamos la solución.</li>
+                    <li>· Resolvemos el problema.</li>
+                </ul>
             </div>
-        </section>
+            <img src="OFICINA TÉCNICA.jpeg" alt="Imagen Oficina Técnica">
+        </div>
 
         <!-- Otras secciones -->
-        <section id="servicios">
-            <h2>Nuestros Servicios</h2>
-            <ul>
-                <li>· Estructuras metálicas según necesidades.</li>
-                <li>· Calderería industrial.</li>
-                <li>· Plataformas para terrazas de restaurantes.</li>
-            </ul>
+        <section id="quienes-somos">
+            <h2>¿Quiénes somos?</h2>
+            <p>Prime Ingeniería es una empresa nacida en el año 2022...</p>
         </section>
 
-        <section id="productos">
-            <h2>Productos</h2>
-            <ul>
-                <li>· Cintas transportadoras.</li>
-                <li>· Mesas rodilleras.</li>
-            </ul>
-        </section>
-
-        <section id="porque-nosotros">
-            <h2>¿Por qué trabajar con nosotros?</h2>
-            <p>Nos especializamos en ofrecer soluciones innovadoras y personalizadas, con un equipo altamente capacitado y tecnología avanzada. Gracias a nuestra flexibilidad y cercanía con el cliente conseguimos un 100% de efectividad en cada uno de nuestros proyectos.</p>
-        </section>
-
-        <section id="futuro">
-            <h2>¿Hablamos del futuro?</h2>
-            <p>En Prime Ingeniería, miramos hacia el futuro con innovación y tecnologías de vanguardia.</p>
-        </section>
-
-        <section id="proveedores">
-            <h2>Proveedores</h2>
-            <p>Colaboramos con proveedores de calidad para garantizar los mejores resultados. Además, trabajamos con proveedores locales y cercanos para tener el mínimo problema de abastecimiento.</p>
-        </section>
-
-        <section id="contacto">
-            <h2>Contáctanos</h2>
-            <p>Escríbenos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
-            <p>Ubicación: Castellón de la Plana.</p>
-            <p>Horario: Lunes - Viernes: 8h - 17h / Sábados: 9h - 13h</p>
-        </section>
-
-        <!-- Footer -->
         <footer>
             <p>&copy; 2022 Prime Ingeniería. Todos los derechos reservados.</p>
         </footer>
@@ -389,21 +338,10 @@
         // Función para alternar la visibilidad de las secciones
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            
-            // Ocultar todas las secciones y eliminar la clase 'active'
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Mostrar la sección seleccionada
+            sections.forEach(section => section.style.display = 'none');
             const selectedSection = document.getElementById(sectionId);
-            selectedSection.classList.add('active');
-            
-            // Cerrar el menú desplegable al hacer clic en una opción (en dispositivos móviles)
-            const sidebar = document.querySelector('.sidebar');
-            if (window.innerWidth <= 768) {
-                sidebar.classList.remove('open');
-            }
+            selectedSection.style.display = 'block';
+            selectedSection.style.opacity = '1'; /* Se hace visible con la transición */
         }
 
         // Función para abrir/cerrar el menú en dispositivos móviles
