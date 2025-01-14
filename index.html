@@ -23,7 +23,7 @@
             color: var(--text-color);
             display: flex;
             flex-direction: row;
-            transition: margin-left 0.3s ease;
+            transition: margin-left 0.3s ease; /* Suaviza el movimiento del contenido */
         }
 
         /* Estilo del menú lateral */
@@ -116,11 +116,17 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: none; /* Inicialmente oculto */
+            display: none; /* Oculta todas las secciones por defecto */
+            opacity: 0;
+            transform: translateY(10px); /* Empezar ligeramente desplazado */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Animaciones más suaves */
         }
 
+        /* Estilo cuando la sección está activa */
         section.active {
-            display: block; /* Solo se muestra la sección activa */
+            display: block;
+            opacity: 1; /* Hacer visible */
+            transform: translateY(0); /* Desplazar al lugar original */
         }
 
         h2 {
@@ -152,11 +158,11 @@
         }
 
         footer p {
-            color: white !important;
+            color: white !important; /* También para los párrafos dentro del footer */
         }
 
         footer a {
-            color: white !important;
+            color: white !important; /* También para los enlaces dentro del footer */
         }
 
         footer a:hover {
@@ -209,6 +215,7 @@
             border-radius: 8px;
         }
 
+
         /* Media Queries para pantallas pequeñas (móviles) */
         @media (max-width: 768px) {
             body {
@@ -253,6 +260,7 @@
                 padding: 12px;
                 text-align: center;
             }
+        }
 
             .oficina-tecnica {
                 flex-direction: column;
@@ -285,6 +293,40 @@
             }
         }
 
+        /* Estilo de la sección de evolución de los logos */
+        .evolucion-logos {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap; /* Para que las imágenes se ajusten en pantallas pequeñas */
+        }
+
+        .logo-item {
+            text-align: center;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .logo-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
     </style>
 </head>
 <body>
@@ -311,10 +353,10 @@
             <p>Innovación y tecnología al servicio de la ingeniería</p>
         </header>
 
-        <!-- Sección ¿Quiénes somos? -->
-        <section id="quienes-somos" class="active">
+        <!-- Secciones -->
+        <section id="quienes-somos">
             <h2>¿Quiénes somos?</h2>
-            <p>Prime Ingeniería es una empresa nacida en el año 2022, dedicada a brindar soluciones innovadoras en ingeniería...</p>
+            <p>Prime Ingeniería es una empresa nacida en el año 2022 dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nuestro objetivo es garantizar a nuestros clientes las soluciones óptimas a sus problemas e inquietudes. Inicialmente se presentó como una oficina técnica de apoyo a los clientes. Actualmente, desarrolla sus propios productos, muchos de ellos enfocados al transporte de artículos en fábrica.</p>
 
             <!-- Sección Oficina Técnica dentro de ¿Quiénes somos? -->
             <div class="oficina-tecnica">
@@ -330,23 +372,70 @@
                 <img src="OFICINA TÉCNICA.jpeg" alt="Imagen Oficina Técnica">
             </div>
             <div>
-                <h3>Transformación de los logos</h3>
-                <p>Aquí puedes ver cómo transformamos logos...</p>
+            
+            <!-- Evolución de los logos -->
+            <div class="evolucion-logos">
+                <div class="logo-item">
+                    <h3>AÑO 2022</h3>
+                    <img src="LOGO PRIME INGENIERÍA.png" alt="Logo Prime Ingeniería 2022" style="width: 100%; max-width: 300px; border-radius: 8px;">
+                    <p>Este fue el logo que representó nuestra imagen en el año 2022. Se trataba de un logo realizado como boceto del que presentaríamos de manera oficial al inicio del año 2023.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>AÑO 2023</h3>
+                    <img src="LOGO PRIME INGENIERÍA PLANOS.png" alt="Logo Prime Ingeniería Planos 2023" style="width: 100%; max-width: 300px; border-radius: 8px;">
+                    <p>Desde 2023, este logo reflejó nuestra especialización en planos y diseño técnico.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>AÑO 2025</h3>
+                    <img src="PRIME INGENIERÍA 2.4.png" alt="Logo Prime Ingeniería 2.4 2025" style="width: 100%; max-width: 300px; border-radius: 4px;">
+                    <p>La presentación de este último logo simboliza nuestra ambición de buscar siempre la excelencia. El color azul representa el cielo y se puede observar un triángulo con el vértice en la parte superior, lo cual simboliza el objetivo de permanecer siempre en lo más alto.</p>
+                </div>
             </div>
         </section>
 
-        <!-- Sección Nuestros Servicios -->
+        <!-- Otras secciones -->
         <section id="servicios">
             <h2>Nuestros Servicios</h2>
-            <p>Aquí va la información de nuestros servicios...</p>
+            <ul>
+                <li>· Estructuras metálicas según necesidades.</li>
+                <li>· Calderería industrial.</li>
+                <li>· Plataformas para terrazas de restaurantes.</li>
+            </ul>
         </section>
 
-        <!-- Sección Productos -->
         <section id="productos">
             <h2>Productos</h2>
-            <p>Aquí va la información sobre nuestros productos...</p>
+            <ul>
+                <li>· Cintas transportadoras.</li>
+                <li>· Mesas rodilleras.</li>
+            </ul>
         </section>
 
+        <section id="porque-nosotros">
+            <h2>¿Por qué trabajar con nosotros?</h2>
+            <p>Nos especializamos en ofrecer soluciones innovadoras y personalizadas, con un equipo altamente capacitado y tecnología avanzada. Gracias a nuestra flexibilidad y cercanía con el cliente conseguimos un 100% de efectividad en cada uno de nuestros proyectos.</p>
+        </section>
+
+        <section id="futuro">
+            <h2>¿Hablamos del futuro?</h2>
+            <p>En Prime Ingeniería, miramos hacia el futuro con innovación y tecnologías de vanguardia.</p>
+        </section>
+
+        <section id="proveedores">
+            <h2>Proveedores</h2>
+            <p>Colaboramos con proveedores de calidad para garantizar los mejores resultados. Además, trabajamos con proveedores locales y cercanos para tener el mínimo problema de abastecimiento.</p>
+        </section>
+
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <p>Escríbenos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
+            <p>Ubicación: Castellón de la Plana.</p>
+            <p>Horario: Lunes - Viernes: 8h - 17h / Sábados: 9h - 13h</p>
+        </section>
+
+        <!-- Footer -->
         <footer>
             <p>&copy; 2022 Prime Ingeniería. Todos los derechos reservados.</p>
         </footer>
@@ -356,9 +445,21 @@
         // Función para alternar la visibilidad de las secciones
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.classList.remove('active'));
+            
+            // Ocultar todas las secciones y eliminar la clase 'active'
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Mostrar la sección seleccionada
             const selectedSection = document.getElementById(sectionId);
             selectedSection.classList.add('active');
+            
+            // Cerrar el menú desplegable al hacer clic en una opción (en dispositivos móviles)
+            const sidebar = document.querySelector('.sidebar');
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('open');
+            }
         }
 
         // Función para abrir/cerrar el menú en dispositivos móviles
