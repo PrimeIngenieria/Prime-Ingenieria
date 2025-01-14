@@ -118,7 +118,15 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none; /* Oculta todas las secciones por defecto */
             opacity: 0;
-            transition: opacity 0.5s ease; /* Suaviza la aparición de la sección */
+            transform: translateY(10px); /* Empezar ligeramente desplazado */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Animaciones más suaves */
+        }
+
+        /* Estilo cuando la sección está activa */
+        section.active {
+            display: block;
+            opacity: 1; /* Hacer visible */
+            transform: translateY(0); /* Desplazar al lugar original */
         }
 
         h2 {
@@ -137,7 +145,7 @@
             font-size: 1.1rem;
         }
 
-                footer {
+        footer {
             text-align: center;
             padding: 20px;
             background-color: var(--primary-blue);
@@ -148,13 +156,13 @@
             color: #FFEB3B;
             text-decoration: none;
         }
- 
+
         footer p {
-             color: white !important; /* También para los párrafos dentro del footer */
+            color: white !important; /* También para los párrafos dentro del footer */
         }
 
         footer a {
-             color: white !important; /* También para los enlaces dentro del footer */
+            color: white !important; /* También para los enlaces dentro del footer */
         }
 
         footer a:hover {
@@ -381,12 +389,17 @@
         // Función para alternar la visibilidad de las secciones
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.style.display = 'none');
-            const selectedSection = document.getElementById(sectionId);
-            selectedSection.style.display = 'block';
-            selectedSection.style.opacity = '1'; /* Se hace visible con la transición */
             
-            // Cerrar el menú desplegable al hacer clic en una opción
+            // Ocultar todas las secciones y eliminar la clase 'active'
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Mostrar la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+            
+            // Cerrar el menú desplegable al hacer clic en una opción (en dispositivos móviles)
             const sidebar = document.querySelector('.sidebar');
             if (window.innerWidth <= 768) {
                 sidebar.classList.remove('open');
