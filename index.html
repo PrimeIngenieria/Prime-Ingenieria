@@ -116,6 +116,11 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none; /* Inicialmente oculto */
+        }
+
+        section.active {
+            display: block; /* Solo se muestra la sección activa */
         }
 
         h2 {
@@ -307,9 +312,9 @@
         </header>
 
         <!-- Sección ¿Quiénes somos? -->
-        <section id="quienes-somos">
+        <section id="quienes-somos" class="active">
             <h2>¿Quiénes somos?</h2>
-            <p>Prime Ingeniería es una empresa nacida en el año 2022...</p>
+            <p>Prime Ingeniería es una empresa nacida en el año 2022, dedicada a brindar soluciones innovadoras en ingeniería...</p>
 
             <!-- Sección Oficina Técnica dentro de ¿Quiénes somos? -->
             <div class="oficina-tecnica">
@@ -324,13 +329,22 @@
                 </div>
                 <img src="OFICINA TÉCNICA.jpeg" alt="Imagen Oficina Técnica">
             </div>
-
-            <!-- Imágenes de Transformación de Logos (parte que quieres debajo de Oficina Técnica) -->
             <div>
                 <h3>Transformación de los logos</h3>
                 <p>Aquí puedes ver cómo transformamos logos...</p>
-                <!-- Aquí puedes añadir las imágenes de los logos transformados -->
             </div>
+        </section>
+
+        <!-- Sección Nuestros Servicios -->
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <p>Aquí va la información de nuestros servicios...</p>
+        </section>
+
+        <!-- Sección Productos -->
+        <section id="productos">
+            <h2>Productos</h2>
+            <p>Aquí va la información sobre nuestros productos...</p>
         </section>
 
         <footer>
@@ -342,9 +356,9 @@
         // Función para alternar la visibilidad de las secciones
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.style.display = 'none');
+            sections.forEach(section => section.classList.remove('active'));
             const selectedSection = document.getElementById(sectionId);
-            selectedSection.style.display = 'block';
+            selectedSection.classList.add('active');
         }
 
         // Función para abrir/cerrar el menú en dispositivos móviles
