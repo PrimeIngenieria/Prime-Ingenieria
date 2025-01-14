@@ -116,9 +116,6 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: none; /* Oculta todas las secciones por defecto */
-            opacity: 0;
-            transition: opacity 0.5s ease; /* Suaviza la aparición de la sección */
         }
 
         h2 {
@@ -313,10 +310,8 @@
         <section id="quienes-somos">
             <h2>¿Quiénes somos?</h2>
             <p>Prime Ingeniería es una empresa nacida en el año 2022...</p>
-        </section>
 
-        <!-- Sección Oficina Técnica -->
-        <section id="oficina-tecnica" style="display: none;">
+            <!-- Sección Oficina Técnica dentro de ¿Quiénes somos? -->
             <div class="oficina-tecnica">
                 <div class="oficina-tecnica-texto">
                     <h3>Oficina Técnica</h3>
@@ -329,12 +324,13 @@
                 </div>
                 <img src="OFICINA TÉCNICA.jpeg" alt="Imagen Oficina Técnica">
             </div>
-        </section>
 
-        <!-- Otras secciones -->
-        <section id="transformacion-logos">
-            <h2>Transformación de los logos</h2>
-            <!-- Aquí puedes agregar las imágenes de transformación de los logos -->
+            <!-- Imágenes de Transformación de Logos (parte que quieres debajo de Oficina Técnica) -->
+            <div>
+                <h3>Transformación de los logos</h3>
+                <p>Aquí puedes ver cómo transformamos logos...</p>
+                <!-- Aquí puedes añadir las imágenes de los logos transformados -->
+            </div>
         </section>
 
         <footer>
@@ -349,7 +345,6 @@
             sections.forEach(section => section.style.display = 'none');
             const selectedSection = document.getElementById(sectionId);
             selectedSection.style.display = 'block';
-            selectedSection.style.opacity = '1'; /* Se hace visible con la transición */
         }
 
         // Función para abrir/cerrar el menú en dispositivos móviles
