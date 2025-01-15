@@ -162,4 +162,228 @@
         }
 
         footer a {
-            color: white !im
+            color: white !important; /* También para los enlaces dentro del footer */
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo de la sección Oficina Técnica */
+        .oficina-tecnica {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .oficina-tecnica ul {
+            flex: 1;
+            padding: 0;
+            list-style: none;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .oficina-tecnica ul li {
+            margin: 10px 0;
+        }
+
+        .oficina-tecnica img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Estilo de la sección de evolución de los logos */
+        .evolucion-logos {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap; /* Para que las imágenes se ajusten en pantallas pequeñas */
+        }
+
+        .logo-item {
+            text-align: center;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .logo-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        /* Mostrar el icono hamburguesa solo en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .content {
+                margin-left: 0; /* No desplazamos el contenido en pantallas pequeñas */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón hamburguesa (solo visible en pantallas pequeñas) -->
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <!-- Menu Lateral -->
+    <div class="sidebar">
+        <a href="javascript:void(0)" onclick="toggleSection('quienes-somos')">¿Quiénes somos?</a>
+        <a href="javascript:void(0)" onclick="toggleSection('servicios')">Nuestros Servicios</a>
+        <a href="javascript:void(0)" onclick="toggleSection('productos')">Productos</a>
+        <a href="javascript:void(0)" onclick="toggleSection('porque-nosotros')">¿Por qué trabajar con nosotros?</a>
+        <a href="javascript:void(0)" onclick="toggleSection('futuro')">¿Hablamos del futuro?</a>
+        <a href="javascript:void(0)" onclick="toggleSection('proveedores')">Proveedores</a>
+        <a href="javascript:void(0)" onclick="toggleSection('contacto')">Contáctanos</a>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="content">
+        <!-- Header -->
+        <header>
+            <img src="PRIME INGENIERÍA 2.4.png" alt="Logo de Prime Ingeniería" class="logo">
+            <p>Innovación y tecnología al servicio de la ingeniería</p>
+        </header>
+
+        <!-- Secciones -->
+        <section id="quienes-somos">
+            <h2>¿Quiénes somos?</h2>
+            <p>Prime Ingeniería es una empresa nacida en el año 2022 dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nuestro objetivo es garantizar a nuestros clientes las soluciones óptimas a sus problemas e inquietudes. Inicialmente se presentó como una oficina técnica de apoyo a los clientes. Actualmente, desarrolla sus propios productos, muchos de ellos enfocados al transporte de artículos en fábrica.</p>
+
+            <!-- Oficina Técnica -->
+            <div class="oficina-tecnica">
+                <ul>
+                    <li><strong>Analizamos vuestro problema.</strong></li>
+                    <li><strong>Buscamos una solución específica.</strong></li>
+                    <li><strong>Planificamos la solución.</strong></li>
+                    <li><strong>Resolvemos el problema.</strong></li>
+                </ul>
+                <img src="OFICINA TÉCNICA.jpeg" alt="Oficina Técnica">
+            </div>
+            
+            <!-- Evolución de los logos -->
+            <div class="evolucion-logos">
+                <div class="logo-item">
+                    <h3>AÑO 2022</h3>
+                    <img src="LOGO PRIME INGENIERÍA.png" alt="Logo Prime Ingeniería 2022" style="width: 100%; max-width: 300px; border-radius: 8px;">
+                    <p>Este fue el logo que representó nuestra imagen en el año 2022. Se trataba de un logo realizado como boceto del que presentaríamos de manera oficial al inicio del año 2023.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>AÑO 2023</h3>
+                    <img src="LOGO PRIME INGENIERÍA PLANOS.png" alt="Logo Prime Ingeniería Planos 2023" style="width: 100%; max-width: 300px; border-radius: 8px;">
+                    <p>Desde 2023, este logo reflejó nuestra especialización en planos y diseño técnico.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>AÑO 2025</h3>
+                    <img src="PRIME INGENIERÍA 2.4.png" alt="Logo Prime Ingeniería 2.4 2025" style="width: 100%; max-width: 300px; border-radius: 4px;">
+                    <p>La presentación de este último logo simboliza nuestra ambición de buscar siempre la excelencia. El color azul representa el cielo y se puede observar un triángulo con el vértice en la parte superior, lo cual simboliza el objetivo de permanecer siempre en lo más alto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Otras secciones -->
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <ul>
+                <li>· Estructuras metálicas según necesidades.</li>
+                <li>· Calderería industrial.</li>
+                <li>· Plataformas para terrazas de restaurantes.</li>
+            </ul>
+        </section>
+
+        <section id="productos">
+            <h2>Productos</h2>
+            <ul>
+                <li>· Cintas transportadoras.</li>
+                <li>· Mesas rodilleras.</li>
+            </ul>
+        </section>
+
+        <section id="porque-nosotros">
+            <h2>¿Por qué trabajar con nosotros?</h2>
+            <p>Nos especializamos en ofrecer soluciones innovadoras y personalizadas, con un equipo altamente capacitado y tecnología avanzada. Gracias a nuestra flexibilidad y cercanía con el cliente conseguimos un 100% de efectividad en cada uno de nuestros proyectos.</p>
+        </section>
+
+        <section id="futuro">
+            <h2>¿Hablamos del futuro?</h2>
+            <p>En Prime Ingeniería, miramos hacia el futuro con innovación y tecnologías de vanguardia.</p>
+        </section>
+
+        <section id="proveedores">
+            <h2>Proveedores</h2>
+            <p>Colaboramos con proveedores de calidad para garantizar los mejores resultados. Además, trabajamos con proveedores locales y cercanos para tener el mínimo problema de abastecimiento.</p>
+        </section>
+
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <p>Escríbenos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
+            <p>Ubicación: Castellón de la Plana.</p>
+            <p>Horario: Lunes - Viernes: 8h - 17h / Sábados: 9h - 13h</p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2022 Prime Ingeniería. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Función para alternar la visibilidad de las secciones
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            
+            // Ocultar todas las secciones y eliminar la clase 'active'
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Mostrar la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+            
+            // Cerrar el menú desplegable al hacer clic en una opción (en dispositivos móviles)
+            const sidebar = document.querySelector('.sidebar');
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('open');
+            }
+        }
+
+        // Función para abrir/cerrar el menú en dispositivos móviles
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open'); // Alterna la clase 'open'
+            const hamburger = document.querySelector('.hamburger');
+            hamburger.classList.toggle('open'); // Hace rotar el icono hamburguesa
+        }
+
+        // Mostrar la primera sección al cargar la página
+        window.onload = function() {
+            toggleSection('quienes-somos');
+        }
+    </script>
+
+</body>
+</html>
