@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -259,7 +260,6 @@
             align-items: center;
             margin-top: 20px;
             gap: 20px;
-            flex-wrap: wrap;  /* Permite que los elementos se ajusten en pantallas pequeñas */
         }
 
         .oficina-tecnica ul {
@@ -275,10 +275,11 @@
         }
 
         .oficina-tecnica img {
-            max-width: 100%;  /* Ajusta el tamaño de la imagen al 100% del contenedor */
-            height: auto;     /* Mantiene la proporción de la imagen */
+            max-width: 300px;
+            height: auto;
             border-radius: 8px;
         }
+
 
         /* Estilo de la sección de evolución de los logos */
         .evolucion-logos {
@@ -328,52 +329,141 @@
         <a href="javascript:void(0)" onclick="toggleSection('productos')">Productos</a>
         <a href="javascript:void(0)" onclick="toggleSection('porque-nosotros')">¿Por qué trabajar con nosotros?</a>
         <a href="javascript:void(0)" onclick="toggleSection('futuro')">¿Hablamos del futuro?</a>
-        <a href="javascript:void(0)" onclick="toggleSection('oficina-tecnica')">Oficina Técnica</a>
+        <a href="javascript:void(0)" onclick="toggleSection('proveedores')">Proveedores</a>
+        <a href="javascript:void(0)" onclick="toggleSection('contacto')">Contáctanos</a>
     </div>
 
-    <!-- Contenido Principal -->
+    <!-- Contenedor principal -->
     <div class="content">
-
+        <!-- Header -->
         <header>
-            <img class="logo" src="logo.png" alt="Prime Ingeniería">
-            <h1>Prime Ingeniería</h1>
+            <img src="PRIME INGENIERÍA 2.4.png" alt="Logo de Prime Ingeniería" class="logo">
+            <p>Innovación y tecnología al servicio de la ingeniería</p>
         </header>
 
-        <section id="oficina-tecnica" class="active">
-            <h2>Oficina Técnica</h2>
+        <!-- Secciones -->
+        <section id="quienes-somos">
+            <h2>¿Quiénes somos?</h2>
+            <p>Prime Ingeniería es una empresa nacida en el año 2022 dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nuestro objetivo es garantizar a nuestros clientes las soluciones óptimas a sus problemas e inquietudes. Inicialmente se presentó como una oficina técnica de apoyo a los clientes. Actualmente, desarrolla sus propios productos, muchos de ellos enfocados al transporte de artículos en fábrica.</p>
+
+            <!-- Oficina Técnica -->
+            <h3>Oficina Técnica:</h3>
             <div class="oficina-tecnica">
                 <ul>
-                    <li>Desarrollo de proyectos innovadores</li>
-                    <li>Soporte técnico especializado</li>
-                    <li>Optimización de procesos industriales</li>
+                    <li><strong>·Análisis del problema junto al cliente.</strong></li>
+                    <li><strong>·Búsqueda de una solución específica.</strong></li>
+                    <li><strong>·Planificación de la solución acordada.</strong></li>
+                    <li><strong>·Resolución del problema.</strong></li>
                 </ul>
-                <img src="oficina-tecnica.jpg" alt="Oficina Técnica">
+                <img src="OFICINA TÉCNICA.jpeg" alt="Oficina Técnica">
+            </div>
+            
+            <!-- Evolución de los logos -->
+            <h3>Desarrollo y evolución de nuestros logos:</h3>
+            <div class="evolucion-logos">
+
+                <div class="logo-item">
+                    <h3>AÑO 2022</h3>
+                    <img src="LOGO PRIME INGENIERÍA.png" alt="Logo Prime Ingeniería 2022" style="width: 100%; max-width: 300px; border-radius: 8px;">
+                    <p>Este fue el logo que representó nuestra imagen en el año 2022. Se trataba de un logo realizado como boceto del que presentaríamos de manera oficial al inicio del año 2023.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>AÑO 2023</h3>
+                    <img src="LOGO PRIME INGENIERÍA PLANOS.png" alt="Logo Prime Ingeniería Planos 2023" style="width: 100%; max-width: 300px; border-radius: 8px;">
+                    <p>Desde 2023, este logo reflejó nuestra especialización en planos y diseño técnico.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>AÑO 2025</h3>
+                    <img src="PRIME INGENIERÍA 2.4.png" alt="Logo Prime Ingeniería 2.4 2025" style="width: 100%; max-width: 300px; border-radius: 4px;">
+                    <p>La presentación de este último logo simboliza nuestra ambición de buscar siempre la excelencia. El color azul representa el cielo y se puede observar un triángulo con el vértice en la parte superior, lo cual simboliza el objetivo de permanecer siempre en lo más alto.</p>
+                </div>
             </div>
         </section>
 
-        <!-- Otras secciones que irían aquí -->
+        <!-- Otras secciones -->
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <ul>
+                <li>· Estructuras metálicas según necesidades.</li>
+                <li>· Calderería industrial.</li>
+                <li>· Plataformas para terrazas de restaurantes.</li>
+                <li>· Contenedores de basura para vía pública.</li>
+                <li>· Barandillas para vía pública.</li>
+            </ul>
+        </section>
 
+        <section id="productos">
+            <h2>Productos</h2>
+            <ul>
+                <li>· Cintas transportadoras.</li>
+                <li>· Mesas rodilleras.</li>
+            </ul>
+        </section>
+
+        <section id="porque-nosotros">
+            <h2>¿Por qué trabajar con nosotros?</h2>
+            <p>Nos especializamos en ofrecer soluciones innovadoras y personalizadas, con un equipo altamente capacitado y tecnología avanzada. Gracias a nuestra flexibilidad y cercanía con el cliente conseguimos un 100% de efectividad en cada uno de nuestros proyectos.</p>
+        </section>
+
+        <section id="futuro">
+            <h2>¿Hablamos del futuro?</h2>
+            <p>En Prime Ingeniería, miramos hacia el futuro con innovación y tecnologías de vanguardia.</p>
+        </section>
+
+        <section id="proveedores">
+            <h2>Proveedores</h2>
+            <p>Colaboramos con proveedores de calidad para garantizar los mejores resultados. Además, trabajamos con proveedores locales y cercanos para tener el mínimo problema de abastecimiento.</p>
+        </section>
+
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <p>Escríbenos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
+            <p>Ubicación: Castellón de la Plana.</p>
+            <p>Horario: Lunes - Viernes: 8h - 17h / Sábados: 9h - 13h</p>
+        </section>
+
+        <!-- Footer -->
         <footer>
-            <p>&copy; 2025 Prime Ingeniería. Todos los derechos reservados.</p>
-            <a href="contacto.html">Contáctanos</a>
+            <p>&copy; 2022 Prime Ingeniería. Todos los derechos reservados.</p>
         </footer>
     </div>
 
     <script>
-        // Función para alternar el menú
-        function toggleMenu() {
-            document.querySelector('.sidebar').classList.toggle('open');
-            document.querySelector('.hamburger').classList.toggle('open');
-        }
-
-        // Función para mostrar/ocultar secciones
+        // Función para alternar la visibilidad de las secciones
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            sections.forEach((section) => {
+            
+            // Ocultar todas las secciones y eliminar la clase 'active'
+            sections.forEach(section => {
                 section.classList.remove('active');
             });
-            document.getElementById(sectionId).classList.add('active');
+            
+            // Mostrar la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+            
+            // Cerrar el menú desplegable al hacer clic en una opción (en dispositivos móviles)
+            const sidebar = document.querySelector('.sidebar');
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('open');
+            }
+        }
+
+        // Función para abrir/cerrar el menú en dispositivos móviles
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open'); // Alterna la clase 'open'
+            const hamburger = document.querySelector('.hamburger');
+            hamburger.classList.toggle('open'); // Hace rotar el icono hamburguesa
+        }
+
+        // Mostrar la primera sección al cargar la página
+        window.onload = function() {
+            toggleSection('quienes-somos');
         }
     </script>
+
 </body>
 </html>
