@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -231,6 +230,23 @@
                 padding: 12px;
                 text-align: center;
             }
+
+            /* Estilo de la sección Oficina Técnica */
+            .oficina-tecnica {
+                flex-direction: column; /* Cambia la dirección a columna (imagen arriba, texto abajo) */
+                align-items: center; /* Centra los elementos en el contenedor */
+                gap: 10px; /* Espacio entre la imagen y el texto */
+            }
+
+            .oficina-tecnica img {
+                max-width: 100%; /* Asegura que la imagen ocupe todo el ancho disponible */
+                height: auto; /* Mantiene la proporción de la imagen */
+            }
+
+            .oficina-tecnica ul {
+                font-size: 1rem; /* Ajusta el tamaño de la fuente para dispositivos móviles */
+                text-align: center; /* Centra el texto debajo de la imagen */
+            }
         }
 
         /* Media Queries para dispositivos horizontales o pantallas grandes */
@@ -252,34 +268,6 @@
                 display: none; /* Esconde el botón hamburguesa en pantallas grandes */
             }
         }
-
-        /* Estilo de la sección Oficina Técnica */
-        .oficina-tecnica {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            gap: 20px;
-        }
-
-        .oficina-tecnica ul {
-            flex: 1;
-            padding: 0;
-            list-style: none;
-            font-size: 1.1rem;
-            color: var(--text-color);
-        }
-
-        .oficina-tecnica ul li {
-            margin: 10px 0;
-        }
-
-        .oficina-tecnica img {
-            max-width: 300px;
-            height: auto;
-            border-radius: 8px;
-        }
-
 
         /* Estilo de la sección de evolución de los logos */
         .evolucion-logos {
@@ -409,61 +397,42 @@
 
         <section id="futuro">
             <h2>¿Hablamos del futuro?</h2>
-            <p>En Prime Ingeniería, miramos hacia el futuro con innovación y tecnologías de vanguardia.</p>
+            <p>En Prime Ingeniería estamos siempre a la vanguardia de la tecnología y la innovación. Nos adaptamos continuamente a las necesidades del mercado y buscamos nuevas soluciones para ayudar a nuestros clientes a mejorar sus procesos.</p>
         </section>
 
         <section id="proveedores">
             <h2>Proveedores</h2>
-            <p>Colaboramos con proveedores de calidad para garantizar los mejores resultados. Además, trabajamos con proveedores locales y cercanos para tener el mínimo problema de abastecimiento.</p>
+            <p>Trabajamos con los mejores proveedores de materiales y equipos, garantizando siempre la calidad en todos nuestros productos y servicios.</p>
         </section>
 
         <section id="contacto">
             <h2>Contáctanos</h2>
-            <p>Escríbenos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
-            <p>Ubicación: Castellón de la Plana.</p>
-            <p>Horario: Lunes - Viernes: 8h - 17h / Sábados: 9h - 13h</p>
+            <p>Si estás interesado en nuestros servicios o productos, no dudes en ponerte en contacto con nosotros.</p>
+            <a href="mailto:info@primeingenieria.com" class="btn">Escríbenos</a>
         </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2022 Prime Ingeniería. Todos los derechos reservados.</p>
-        </footer>
     </div>
 
+    <footer>
+        <p>&copy; 2025 Prime Ingeniería. Todos los derechos reservados.</p>
+    </footer>
+
     <script>
-        // Función para alternar la visibilidad de las secciones
+        // Función para abrir/cerrar el menú hamburguesa
+        function toggleMenu() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.hamburger').classList.toggle('open');
+        }
+
+        // Función para mostrar las secciones al hacer clic en los enlaces
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            
-            // Ocultar todas las secciones y eliminar la clase 'active'
-            sections.forEach(section => {
+            sections.forEach((section) => {
                 section.classList.remove('active');
             });
-            
-            // Mostrar la sección seleccionada
-            const selectedSection = document.getElementById(sectionId);
-            selectedSection.classList.add('active');
-            
-            // Cerrar el menú desplegable al hacer clic en una opción (en dispositivos móviles)
-            const sidebar = document.querySelector('.sidebar');
-            if (window.innerWidth <= 768) {
-                sidebar.classList.remove('open');
-            }
-        }
 
-        // Función para abrir/cerrar el menú en dispositivos móviles
-        function toggleMenu() {
-            const sidebar = document.querySelector('.sidebar');
-            sidebar.classList.toggle('open'); // Alterna la clase 'open'
-            const hamburger = document.querySelector('.hamburger');
-            hamburger.classList.toggle('open'); // Hace rotar el icono hamburguesa
-        }
-
-        // Mostrar la primera sección al cargar la página
-        window.onload = function() {
-            toggleSection('quienes-somos');
+            const sectionToShow = document.getElementById(sectionId);
+            sectionToShow.classList.add('active');
         }
     </script>
-
 </body>
 </html>
