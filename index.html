@@ -150,4 +150,63 @@
         <!-- Secciones -->
         <section id="quienes-somos">
             <h2>¿Quiénes somos?</h2>
-            <p>Prime Ingeniería es una empresa nacida e
+            <p>Prime Ingeniería es una empresa nacida en el año 2022 dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado...</p>
+        </section>
+
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <ul>
+                <li>· Estructuras metálicas según necesidades.</li>
+                <li>· Calderería industrial.</li>
+            </ul>
+        </section>
+
+        <section id="productos">
+            <h2>Productos</h2>
+            <ul>
+                <li>· Cintas transportadoras.</li>
+            </ul>
+        </section>
+
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <p>Escríbenos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2022 Prime Ingeniería. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Función para alternar la visibilidad de las secciones
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            
+            // Ocultar todas las secciones y eliminar la clase 'active'
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Mostrar la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+        }
+
+        // Función para abrir/cerrar el menú en dispositivos móviles
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open'); // Alterna la clase 'open'
+            const hamburger = document.querySelector('.hamburger');
+            hamburger.classList.toggle('open'); // Hace rotar el icono hamburguesa
+        }
+
+        // Mostrar la primera sección al cargar la página
+        window.onload = function() {
+            toggleSection('quienes-somos');
+        }
+    </script>
+
+</body>
+</html>
