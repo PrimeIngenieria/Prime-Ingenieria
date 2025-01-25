@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Ingeniería</title>
-    <!-- Favicon -->
-    <link rel="icon" href="miniatura.png" type="image/png">
-    
+
+    <link rel="icon" href="MINIATURA.png" type="image/png">
+
     <style>
         /* Definición de la paleta de colores */
         :root {
-            --primary-blue: #1E3A8A;
-            --secondary-blue: #3B82F6;
-            --background-color: #F3F4F6;
-            --text-color: #333;
-            --accent-color: #4CAF50;
-            --dark-gray: #333;
+            --primary-blue: #1E3A8A; /* Azul oscuro */
+            --secondary-blue: #3B82F6; /* Azul más claro */
+            --background-color: #F3F4F6; /* Gris claro */
+            --text-color: #333; /* Color de texto */
+            --accent-color: #4CAF50; /* Color verde para botones */
+            --dark-gray: #333; /* Gris oscuro para el hamburguesa */
         }
 
         body {
@@ -26,6 +26,7 @@
             color: var(--text-color);
             display: flex;
             flex-direction: row;
+            transition: margin-left 0.3s ease; /* Suaviza el movimiento del contenido */
         }
 
         /* Estilo del menú lateral */
@@ -35,16 +36,17 @@
             background-color: var(--secondary-blue);
             position: fixed;
             top: 0;
-            left: -250px;
+            left: -250px; /* Inicialmente el menú está oculto */
             padding-top: 20px;
             color: white;
             display: flex;
             flex-direction: column;
             transition: transform 0.4s ease-out, left 0.3s ease-in-out;
+            z-index: 999;
         }
 
         .sidebar.open {
-            left: 0;
+            left: 0; /* Cuando se agrega la clase 'open', se muestra el menú */
         }
 
         .sidebar a {
@@ -54,14 +56,16 @@
             font-size: 1.1rem;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s, padding 0.3s ease; /* Transición suave */
         }
 
         .sidebar a:hover {
             background-color: #FFEB3B;
             color: #333;
+            padding-left: 25px; /* Desplazamiento suave hacia la derecha */
         }
 
-        /* Botón hamburguesa */
+        /* Estilo del botón hamburguesa */
         .hamburger {
             display: none;
             font-size: 30px;
@@ -69,24 +73,31 @@
             top: 20px;
             left: 20px;
             cursor: pointer;
+            color: var(--dark-gray); /* Gris oscuro */
+            z-index: 1000; /* Asegura que el icono esté por encima de otros elementos */
+            transition: transform 0.3s ease;
         }
 
         .hamburger.open {
-            transform: rotate(90deg);
+            transform: rotate(90deg); /* Rotación suave del icono */
         }
 
         /* Contenedor principal */
         .content {
             margin-left: 250px;
             padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: margin-left 0.4s ease-out; /* Suaviza el movimiento del contenido */
         }
 
-        /* Header */
+        /* Encabezado */
         header {
             background-color: white;
             color: var(--primary-blue);
             padding: 20px;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         header h1 {
@@ -97,33 +108,215 @@
         /* Logo */
         .logo {
             max-width: 300px;
+            margin: 1px auto;
+            transition: transform 0.3s ease;
         }
 
-        /* Sección activa */
+        /* Estilo de las secciones */
         section {
             padding: 30px;
             margin: 20px 0;
             background-color: white;
             border-radius: 8px;
-            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none; /* Oculta todas las secciones por defecto */
+            opacity: 0;
+            transform: translateY(10px); /* Empezar ligeramente desplazado */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Animaciones más suaves */
         }
 
+        /* Estilo cuando la sección está activa */
         section.active {
             display: block;
+            opacity: 1; /* Hacer visible */
+            transform: translateY(0); /* Desplazar al lugar original */
         }
 
         h2 {
             color: var(--primary-blue);
             font-size: 2.2rem;
+            cursor: pointer;
         }
 
-        /* Footer */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
             background-color: var(--primary-blue);
-            color: white;
+            color: white !important;
         }
+
+        footer a {
+            color: #FFEB3B;
+            text-decoration: none;
+        }
+
+        footer p {
+            color: white !important; /* También para los párrafos dentro del footer */
+        }
+
+        footer a {
+            color: white !important; /* También para los enlaces dentro del footer */
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Botones */
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Media Queries para pantallas pequeñas (móviles) */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            .sidebar {
+                width: 250px;
+                position: absolute;
+                top: 0;
+                left: -250px; /* Esconde el menú fuera de la vista */
+                z-index: 100;
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 10px;
+            }
+
+            .logo {
+                max-width: 120px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .sidebar a {
+                font-size: 1rem;
+                padding: 12px;
+                text-align: center;
+            }
+        }
+
+        /* Media Queries para dispositivos horizontales o pantallas grandes */
+        @media (min-width: 769px) {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 250px; /* El menú lateral será visible siempre */
+                z-index: 100;
+                transform: translateX(0); /* Siempre visible en pantallas grandes */
+            }
+
+            .content {
+                margin-left: 250px;
+            }
+
+            .hamburger {
+                display: none; /* Esconde el botón hamburguesa en pantallas grandes */
+            }
+        }
+
+        /* Estilo de la sección Oficina Técnica */
+        .oficina-tecnica {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .oficina-tecnica ul {
+            flex: 1;
+            padding: 0;
+            list-style: none;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .oficina-tecnica ul li {
+            margin: 10px 0;
+        }
+
+        .oficina-tecnica img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+
+        /* Estilo de la sección de evolución de los logos */
+        .evolucion-logos {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap; /* Para que las imágenes se ajusten en pantallas pequeñas */
+        }
+
+        .logo-item {
+            text-align: center;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .logo-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
     </style>
 </head>
 <body>
@@ -136,6 +329,9 @@
         <a href="javascript:void(0)" onclick="toggleSection('quienes-somos')">¿Quiénes somos?</a>
         <a href="javascript:void(0)" onclick="toggleSection('servicios')">Nuestros Servicios</a>
         <a href="javascript:void(0)" onclick="toggleSection('productos')">Productos</a>
+        <a href="javascript:void(0)" onclick="toggleSection('porque-nosotros')">¿Por qué trabajar con nosotros?</a>
+        <a href="javascript:void(0)" onclick="toggleSection('futuro')">¿Hablamos del futuro?</a>
+        <a href="javascript:void(0)" onclick="toggleSection('proveedores')">Proveedores</a>
         <a href="javascript:void(0)" onclick="toggleSection('contacto')">Contáctanos</a>
     </div>
 
@@ -150,14 +346,53 @@
         <!-- Secciones -->
         <section id="quienes-somos">
             <h2>¿Quiénes somos?</h2>
-            <p>Prime Ingeniería es una empresa nacida en el año 2022 dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado...</p>
+            <p>Prime Ingeniería es una empresa nacida en el año 2022 dedicada a ofrecer soluciones tecnológicas innovadoras en el sector industrial y privado. Nuestro objetivo es garantizar a nuestros clientes las soluciones óptimas a sus problemas e inquietudes. Inicialmente se presentó como una oficina técnica de apoyo a los clientes. Actualmente, desarrolla sus propios productos, muchos de ellos enfocados al transporte de artículos en fábrica.</p>
+
+            <!-- Oficina Técnica -->
+            <h3>Oficina Técnica:</h3>
+            <div class="oficina-tecnica">
+                <ul>
+                    <li><strong>· Análisis del problema junto al cliente.</strong></li>
+                    <li><strong>· Búsqueda de una solución específica.</strong></li>
+                    <li><strong>· Planificación de la solución acordada.</strong></li>
+                    <li><strong>· Resolución del problema.</strong></li>
+                </ul>
+                <img src="OFICINA TÉCNICA.jpeg" alt="Oficina Técnica">
+            </div>
+            
+            <!-- Evolución de los logos -->
+            <h3>Desarrollo y evolución de nuestros logos:</h3>
+            <div class="evolucion-logos">
+
+                <div class="logo-item">
+                    <h3>AÑO 2022</h3>
+                    <img src="LOGO PRIME INGENIERÍA.png" alt="Logo Prime Ingeniería 2022" style="width: 100%; max-width: 150px; border-radius: 1px;">
+                    <p>Este fue el logo que representó nuestra imagen en el año 2022. Se trataba de un logo realizado como boceto del que presentaríamos de manera oficial al inicio del año 2023.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>AÑO 2023</h3>
+                    <img src="LOGO PRIME INGENIERÍA PLANOS.png" alt="Logo Prime Ingeniería Planos 2023" style="width: 100%; max-width: 160px; border-radius: 8px;">
+                    <p>Desde 2023, este logo reflejó nuestra especialización en planos y diseño técnico.</p>
+                </div>
+                
+                <div class="logo-item">
+                    <h3>AÑO 2025</h3>
+                    <img src="PRIME INGENIERÍA 2.4.png" alt="Logo Prime Ingeniería 2.4 2025" style="width: 100%; max-width: 150px; border-radius: 4px;">
+                    <p>La presentación de este último logo simboliza nuestra ambición de buscar siempre la excelencia. El color azul representa el cielo y se puede observar un triángulo con el vértice en la parte superior, lo cual simboliza el objetivo de permanecer siempre en lo más alto.</p>
+                </div>
+            </div>
         </section>
 
+        <!-- Otras secciones -->
         <section id="servicios">
             <h2>Nuestros Servicios</h2>
             <ul>
                 <li>· Estructuras metálicas según necesidades.</li>
                 <li>· Calderería industrial.</li>
+                <li>· Plataformas para terrazas de restaurantes.</li>
+                <li>· Contenedores de basura para vía pública.</li>
+                <li>· Barandillas para vía pública.</li>
             </ul>
         </section>
 
@@ -165,12 +400,42 @@
             <h2>Productos</h2>
             <ul>
                 <li>· Cintas transportadoras.</li>
+                <li>· Mesas rodilleras.</li>
             </ul>
+        </section>
+
+        <section id="porque-nosotros">
+            <h2>¿Por qué trabajar con nosotros?</h2>
+            <p>Nos especializamos en ofrecer soluciones innovadoras y personalizadas, con un equipo altamente capacitado y tecnología avanzada. Gracias a nuestra flexibilidad y cercanía con el cliente conseguimos un 100% de efectividad en cada uno de nuestros proyectos.</p>
+
+            <p>Nuestro alto nivel de organización nos permite cumplir con las fechas de entrega acordadas. Además, sabemos las pérdidas que produce la paralización de una máquina, es por ello que garantizamos la máxima prioridad cuando tenemos delante una urgencia.</p>
+
+        </section>
+
+        <section id="futuro">
+            <h2>¿Hablamos del futuro?</h2>
+            <p>En Prime Ingeniería, miramos hacia el futuro con innovación y tecnologías de vanguardia. Nuestro objetivo es crecer de manera exponencial, manteniendo el máximo nivel y calidad requerida en cada proyecto. </p>
+
+
+            <p>El futuro también se construye junto a nuestros clientes. Escuchamos sus necesidades y los acompañamos en cada etapa del proceso, desde el diseño hasta la implementación y el mantenimiento. Nuestro enfoque colaborativo garantiza que nuestras soluciones se adapten de manera óptima a los requerimientos específicos de cada industria. </p>
+
+
+            <p>A medida que la industria avanza, nosotros también avanzamos. Estamos preparados para enfrentar los desafíos del mañana, manteniendo una visión clara de innovación, calidad y eficiencia. Juntos, con nuestros clientes y socios, construimos el futuro de la maquinaria industrial. </p>
+
+            <p>Además, a medida que las regulaciones ambientales se hacen más estrictas, estamos comprometidos en desarrollar maquinaria que no solo sea eficiente, sino también respetuosa con el medio ambiente. Buscamos implementar soluciones que reduzcan el consumo energético, minimicen los residuos y faciliten el reciclaje de los materiales utilizados. </p>
+
+        </section>
+
+        <section id="proveedores">
+            <h2>Proveedores</h2>
+            <p>Colaboramos con proveedores de calidad para garantizar los mejores resultados. Además, trabajamos con proveedores locales y cercanos para tener el mínimo problema de abastecimiento.</p>
         </section>
 
         <section id="contacto">
             <h2>Contáctanos</h2>
             <p>Escríbenos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
+            <p>Ubicación: Castellón de la Plana.</p>
+            <p>Horario: Lunes - Viernes: 8h - 17h / Sábados: 9h - 13h</p>
         </section>
 
         <!-- Footer -->
@@ -192,6 +457,12 @@
             // Mostrar la sección seleccionada
             const selectedSection = document.getElementById(sectionId);
             selectedSection.classList.add('active');
+            
+            // Cerrar el menú desplegable al hacer clic en una opción (en dispositivos móviles)
+            const sidebar = document.querySelector('.sidebar');
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('open');
+            }
         }
 
         // Función para abrir/cerrar el menú en dispositivos móviles
