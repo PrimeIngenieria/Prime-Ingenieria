@@ -448,20 +448,54 @@
             <p>Horario: Lunes - Viernes: 8h - 17h / Sábados: 9h - 13h</p>
         </section>
 
-<!-- Footer -->
-<footer style="background-color: var(--primary-blue); color: white; padding: 20px 0; width: 100%; position: fixed; bottom: 0; left: 0; display: flex; justify-content: space-between; align-items: center; z-index: 1000;">
-    <!-- Apartado de contacto a la izquierda -->
-    <div style="flex: 1; min-width: 250px; padding-left: 20px;">
-        <p><strong>📞 Teléfono:</strong> +34 600 000 000</p>
-        <p><strong>✉️ Correo:</strong> <a href="mailto:primeingenieria@outlook.es" style="color: #FFEB3B;">primeingenieria@outlook.es</a></p>
-        <p><strong>📍 Ubicación:</strong> Castellón de la Plana</p>
+        <!-- Footer -->
+        <footer>
+    <p>✉️ <strong>Correo electrónico:</strong> <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
+    <p>📍 <strong>Ubicación:</strong> Castellón de la Plana</p>
+    <p>📞 <strong>Teléfono:</strong> +34 600 000 000</p>
+
+            <p>&copy; 2025 Prime Ingeniería. Todos los derechos reservados.</p>
+        </footer>
     </div>
 
-    <!-- Derechos reservados centrados -->
-    <div style="text-align: center; flex: 1; min-width: 250px;">
-        <p>&copy; 2025 Prime Ingeniería. Todos los derechos reservados.</p>
-    </div>
-</footer>
+    <script>
+        // Función para alternar la visibilidad de las secciones
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            
+            // Ocultar todas las secciones y eliminar la clase 'active'
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Mostrar la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+            
+            // Cerrar el menú desplegable al hacer clic en una opción (en dispositivos móviles)
+            const sidebar = document.querySelector('.sidebar');
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('open');
+            }
+        }
+
+        // Función para abrir/cerrar el menú en dispositivos móviles
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open'); // Alterna la clase 'open'
+            const hamburger = document.querySelector('.hamburger');
+            hamburger.classList.toggle('open'); // Hace rotar el icono hamburguesa
+        }
+
+        // Mostrar la primera sección al cargar la página
+        window.onload = function() {
+            toggleSection('quienes-somos');
+        }
+    </script>
+
+</body>
+</html>
+
 
     <script>
         // Función para alternar la visibilidad de las secciones
