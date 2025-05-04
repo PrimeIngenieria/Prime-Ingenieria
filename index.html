@@ -441,18 +441,31 @@
             <p>Colaboramos con proveedores de calidad para garantizar los mejores resultados. Además, trabajamos con proveedores locales y cercanos para tener el mínimo problema de abastecimiento.</p>
         </section>
 
-        <section id="contacto">
-            <h2>Contáctanos</h2>
-            <p>Escríbenos a: <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
-            <p>Ubicación: Castellón de la Plana.</p>
-            <p>Horario: Lunes - Viernes: 8h - 17h / Sábados: 9h - 13h</p>
-        </section>
+        <section id="contacto" style="padding: 40px; font-family: 'Poppins', sans-serif;">
+  <h2 style="text-align: center;">Contáctanos</h2>
+  <form action="https://formspree.io/f/moqzvxyz" method="POST" style="max-width: 500px; margin: auto; font-family: 'Poppins', sans-serif;">
+    
+    <label for="email" style="display: block; margin-top: 15px;">Tu correo electrónico:</label>
+    <input type="email" name="email" id="email" required placeholder="ejemplo@correo.com"
+      style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; font-family: 'Poppins', sans-serif;">
+
+    <label for="mensaje" style="display: block; margin-top: 15px;">Tu mensaje:</label>
+    <textarea name="mensaje" id="mensaje" rows="5" required placeholder="Escribe tus dudas aquí..."
+      style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; font-family: 'Poppins', sans-serif;"></textarea>
+
+    <button type="submit"
+      style="background-color: #0077C0; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-family: 'Poppins', sans-serif;">
+      Enviar mensaje
+    </button>
+  </form>
+</section>
 
         <!-- Footer -->
         <footer>
     <p>✉️ <strong>Correo electrónico:</strong> <a href="mailto:primeingenieria@outlook.es">primeingenieria@outlook.es</a></p>
     <p>📍 <strong>Ubicación:</strong> Castellón de la Plana</p>
     <p>📞 <strong>Teléfono Oficina Técnica:</strong> +34 685 037 075</p>
+    <p>Horario: Lunes - Viernes: 8h - 17h / Sábados: 9h - 13h</p>
 
             <p>&copy; 2025 Prime Ingeniería. Todos los derechos reservados.</p>
         </footer>
@@ -526,10 +539,6 @@
             hamburger.classList.toggle('open'); // Hace rotar el icono hamburguesa
         }
 
-        // Mostrar la primera sección al cargar la página
-        window.onload = function() {
-            toggleSection('quienes-somos');
-        }
     </script>
 
 </body>
