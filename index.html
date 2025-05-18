@@ -256,13 +256,14 @@
         }
 
         /* Estilo de la sección Oficina Técnica */
-        .oficina-tecnica {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            gap: 20px;
-        }
+.oficina-tecnica {
+    display: flex;
+    flex-direction: column; /* Apila elementos verticalmente */
+    align-items: center;     /* Centra horizontalmente */
+    margin-top: 20px;
+    gap: 20px;
+    text-align: center;      /* Opcional: centra el texto */
+}
 
         .oficina-tecnica ul {
             flex: 1;
